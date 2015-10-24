@@ -3,6 +3,9 @@
 	margin-top: 10%;
 	padding: 10px;
 }
-#fbBtn{
+#fbBtnRegister{
 	background-color: #44619D;
+}
+#registerBtn{
+	background-color: #5C468C;
 }

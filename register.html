@@ -13,28 +13,36 @@
           <div class="row">
             <p class="flow-text">Register</p>
             <div class="input-field col s12">
-              <input id="username" type="text" class="validate">
+              <input id="usernameRegister" type="text">
               <label for="username">Username</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
+              <input id="emailRegister" type="email">
+              <label for="email">Email</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
+              <input id="passwordRegister" type="password">
               <label for="password">Password</label>
             </div>
           </div>
-          <div class='row center'>  
-            <div class="input-field col s12">
+          <div class='row'>  
+            <div class="input-field col s8">
+              <a
+                onclick="register()" 
+                id="registerBtn" 
+                class="waves-effect waves-light btn-large">Register
+              </a>
+            </div>
+            <div class="input-field col s4">
               <span>Sign up </span>
               <i class="fa fa-arrow-right"></i>
-              <a id="fbBtn" class="btn-floating btn-large waves-effect waves-light">
+              <a id="fbBtnRegister" class="btn-floating btn-large waves-effect waves-light">
               <i class="fa fa-facebook"></i></a>
+            </div>
           </div>
       </form>
     </div>

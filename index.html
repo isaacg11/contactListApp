@@ -13,25 +13,35 @@
       		<div class="row">
       			<p class="flow-text">Login</p>
         		<div class="input-field col s12">
-          		<input id="email" type="email" class="validate">
+          		<input id="emailLogin" type="email" class="validate">
           		<label for="email">Email</label>
         		</div>
       		</div>
       		<div class="row">
         		<div class="input-field col s12">
-          		<input id="password" type="password" class="validate">
+          		<input id="passwordLogin" type="password" class="validate">
           		<label for="password">Password</label>
         		</div>
       		</div>
       		<div class='row'>  
+        		<div class="input-field col s3">
+					<a
+				  	onclick="login()" 
+				  	id="loginBtn" 
+				  	class="waves-effect waves-light btn-large">
+					Login</a>
+      			</div>
+      			<div class="input-field col s3">
+      				<span>W/</span>
+              		<a 
+              		id="fbBtnLogin" 
+              		class="btn-floating btn-large waves-effect waves-light">
+              		<i class="fa fa-facebook"></i></a>
+            	</div>
         		<div class="input-field col s6">
-				<a class="fbBtn" class="waves-effect waves-light btn-large">
-				<i class="fa fa-facebook-official right"></i>Sign In</a>
-      		</div>
-      		<div class='row'>  
-        		<div class="input-field col s6">
-				<p>Dont' have an account? 
-				<a href="register.html"><u>Sign Up</u></a></p>
+					<p>Dont' have an account? 
+					<a href="register.html"><u>Sign Up</u></a></p>
+      			</div>
       		</div>
     	</form>
   	</div>

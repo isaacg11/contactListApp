@@ -3,6 +3,12 @@
 	margin-top: 10%;
 	padding: 10px;
 }
-#fbBtn{
+#loginBtn{
+	background-color: #5C468C;
+}
+#fbBtnLogin{
 	background-color: #44619D;
 }
+
+
+
