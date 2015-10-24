@@ -1,0 +1,2 @@
+Stamplay.init('contactlistapp');
+

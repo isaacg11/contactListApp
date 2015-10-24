@@ -1,0 +1,10 @@
+{
+  "appId": "contactlistapp",
+  "apiKey": "2eb527804fe4a3a7c56fef0cd23f98e9846c1c9793c3b0d1222f6115a9a854fa",
+  "public": "./",
+  "ignore": [
+    "stamplay.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
