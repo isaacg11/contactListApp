@@ -62,4 +62,32 @@ window.onload = function(){
     $('.modal-trigger').leanModal();
   });
 
+//ADD NEW CONTACT
+function addContact(){
+	var name = document.getElementById('username').value;
+	var phone = document.getElementById('phone').value;
+	var email = document.getElementById('useremail').value;
+	var family = document.getElementById("familyBox").checked;
+	var friends = document.getElementById("friendsBox").checked;
+	var business = document.getElementById("businessBox").checked;
+
+	var objectInstance = new Stamplay.Cobject('contact').Model;
+	objectInstance.set('name', name );
+	objectInstance.set('phone', phone );
+	objectInstance.set('email', email );
+	objectInstance.set('family', family );
+	objectInstance.set('friends', friends );
+	objectInstance.set('business', business );
+	objectInstance.save().then(function(){
+		window.location = "home.html";
+	});
+}
+
+
+
+
+
+
+
+
 

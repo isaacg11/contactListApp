@@ -71,27 +71,28 @@
 <div id="modal1" class="modal">
   <div class="modal-content">
     <a href="#!" 
-      class=" modal-action modal-close waves-effect waves-green btn-flat right">X
+      class=" modal-action modal-close waves-effect waves-green btn-flat right">
+      <i class="fa fa-times large"></i>
     </a>
     <h4>New Contact</h4>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">
+          <input id="username" type="text">
+          <label for="username">
           <i class="fa fa-user-plus"></i> Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">
+          <input id="phone" type="text">
+          <label for="phone">
           <i class="fa fa-phone"></i> Phone</label>
         </div>
       </div>
        <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">
+          <input id="useremail" type="text" class="validate">
+          <label for="useremail">
           <i class="fa fa-envelope-o"></i> Email</label>
         </div>
       </div>
@@ -119,7 +120,10 @@
         </form>
       </div>
       <div class="center">
-        <a id="addBtn" class="waves-effect waves-light btn-large">Add</a>
+        <a
+          onclick="addContact()" 
+          id="addBtn" 
+          class="waves-effect waves-light btn-large">Add</a>
       </div>
       <br>
 </div>
