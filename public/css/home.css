@@ -32,8 +32,10 @@ body{
 .indicator {
 	background-color: #5C468C !important;
 }
+#options{
+	padding: 0px;
+}
 #contacts{
-	width: 25%;
 	min-height: 100vh;
 	background-color: #E6E6E6;
 	margin-top: 0px;
@@ -57,4 +59,15 @@ body{
 #addNew{
 	color: #B09DC7;
 	height: 100px;
+}
+.hidden{
+	display: none;
+}
+#addBtn{
+	width: 100%;
+	background-color: #5C468C;
+}
+#modal1{
+	padding-left: 20px;
+	padding-right: 20px;
 }

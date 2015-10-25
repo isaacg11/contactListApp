@@ -48,7 +48,6 @@ function loginFB(){
 }
 
 //GET ALL DATA FOR APP
-
 window.onload = function(){
 	var loggedInUser = new Stamplay.User().Model;
 	loggedInUser.currentUser().then(function(){
@@ -56,3 +55,11 @@ window.onload = function(){
 		document.getElementById('currentUser').innerHTML = user.toUpperCase();
 	});
 };
+
+//NEW CONTACT MODAL
+ $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+
+

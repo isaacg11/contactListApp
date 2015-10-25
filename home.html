@@ -32,27 +32,97 @@
     </ul>
   </div>
 </nav>
+
 <!--TABS-->
 <div class="row indTab">
   <div>
     <ul id="tabBar" class="tabs">
-      <li class="tab col s3"><a class="active" href="#contacts">my contacts</a></li>
-      <li class="tab col s3"><a href="#email">email</a></li>
-      <li class="tab col s3"><a href="#chat">chat</a></li>
-      <li class="tab col s3"><a href="#messaging">messaging</a></li>
+      <li class="tab col s3"><a class="active" href="#contacts">
+      <i class="fa fa-user"></i> my contacts</a></li>
+      <li class="tab col s3"><a href="#email">
+      <i class="fa fa-envelope"></i> email</a></li>
+      <li class="tab col s3"><a href="#chat">
+      <i class="fa fa-smile-o"></i> chat</a></li>
+      <li class="tab col s3"><a href="#messaging">
+      <i class="fa fa-commenting"></i> messaging</a></li>
     </ul>
   </div>
 </div>
 
 <!--TAB 1-->
-  <div id="contacts" class="collection">
-    <a id="all" href="#!" class="collection-item">All</a>
-    <a id="friends" href="#!" class="collection-item">Friends</a>
-    <a id="family" href="#!" class="collection-item">Family</a>
-    <a id="business" href="#!" class="collection-item">Business</a>
-    <a id="addNew" href="#!" class="collection-item">Add New Contact</a>
+<div class="row">
+  <div id="options" class="col s3">
+    <div id="contacts" class="collection">
+      <a id="all" href="#!" class="collection-item"></i> ALL</a>
+      <a id="friends" href="#!" class="collection-item">FRIENDS</a>
+      <a id="family" href="#!" class="collection-item">FAMILY</a>
+      <a id="business" href="#!" class="collection-item">BUSINESS</a>
+      <a 
+        id="addNew" 
+        href="#modal1" 
+        class="collection-item modal-trigger"> 
+        NEW CONTACT <i class="fa fa-plus"></i>
+      </a>
+    </div>
   </div>
+</div>
 
+<!--MODAL-->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <a href="#!" 
+      class=" modal-action modal-close waves-effect waves-green btn-flat right">X
+    </a>
+    <h4>New Contact</h4>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">
+          <i class="fa fa-user-plus"></i> Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">
+          <i class="fa fa-phone"></i> Phone</label>
+        </div>
+      </div>
+       <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">
+          <i class="fa fa-envelope-o"></i> Email</label>
+        </div>
+      </div>
+        <form action="#">
+          <div class="row">
+            <div class="input-field col s4">
+              <p>
+                <input type="checkbox" id="familyBox" />
+                <label for="familyBox">Family</label>
+              </p>
+            </div>
+            <div class="input-field col s4">
+              <p>
+                <input type="checkbox" id="friendsBox" />
+                <label for="friendsBox">Friends</label>
+              </p>
+            </div>
+            <div class="input-field col s4">
+              <p>
+                <input type="checkbox" id="businessBox" />
+                <label for="businessBox">Business</label>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="center">
+        <a id="addBtn" class="waves-effect waves-light btn-large">Add</a>
+      </div>
+      <br>
+</div>
 
 
 
