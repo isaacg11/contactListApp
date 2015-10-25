@@ -1,0 +1,31 @@
+body{
+	background-color: #F3F3F3;
+}
+
+#navbar{
+	background-color: #5C468C;
+	height: 80px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 15px;
+}
+#tabBar{
+	width: 100;
+	background-color: #FFFFDB;
+}
+.tabs{
+	margin-top: 17px;
+	min-width: 100vw;
+}   
+.tabs .tab a{
+	color: #5C468C;
+}
+.tabs .tab a:hover{
+	color: #5C468C;
+}
+.tab-row {
+	padding:0 !important;
+}
+.indicator {
+	background-color: #5C468C !important;
+}

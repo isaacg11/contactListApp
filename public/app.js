@@ -13,11 +13,12 @@ function register(){
 	};
 
 	var newUser = new Stamplay.User().Model;
-	newUser.signup(registrationData);
-
-	document.getElementById('usernameRegister').value = "";
-	document.getElementById('emailRegister').value = "";
-	document.getElementById('passwordRegister').value = "";
+	newUser.signup(registrationData).then(function(){
+		document.getElementById('usernameRegister').value = "";
+		document.getElementById('emailRegister').value = "";
+		document.getElementById('passwordRegister').value = "";
+		window.location = "home.html";
+	});
 }
 
 //LOGIN WITH EMAIL & PASSWORD
@@ -29,7 +30,20 @@ function login(){
 	user.login(email, password).then(function(){
 		email = document.getElementById('emailLogin').value = "";
 		password = document.getElementById('passwordLogin').value = "";
+		window.location = "home.html";
 	});
 
+}
+
+//REGISTER WITH FACEBOOK
+function registerFB(){
+	var user = new Stamplay.User().Model;
+	user.login('facebook');
+}
+
+//LOGIN WITH FACEBOOK
+function loginFB(){
+	var user = new Stamplay.User().Model;
+	user.login('facebook');
 }
 
