@@ -7,7 +7,7 @@ function register(){
 	password = document.getElementById('passwordRegister').value;
 
 	var registrationData = {
-  		displayname: username,
+  		displayName: username,
   		email : email,
   		password: password
 	};
@@ -47,3 +47,12 @@ function loginFB(){
 	user.login('facebook');
 }
 
+//GET ALL DATA FOR APP
+
+window.onload = function(){
+	var loggedInUser = new Stamplay.User().Model;
+	loggedInUser.currentUser().then(function(){
+  		var user = loggedInUser.get('displayName');
+		document.getElementById('currentUser').innerHTML = user.toUpperCase();
+	});
+};

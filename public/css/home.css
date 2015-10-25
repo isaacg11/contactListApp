@@ -9,8 +9,11 @@ body{
 	padding-right: 20px;
 	padding-top: 15px;
 }
+.indTab{
+	margin-bottom: 0px;
+}
 #tabBar{
-	width: 100;
+	width: 100vw;
 	background-color: #FFFFDB;
 }
 .tabs{
@@ -28,4 +31,30 @@ body{
 }
 .indicator {
 	background-color: #5C468C !important;
+}
+#contacts{
+	width: 25%;
+	min-height: 100vh;
+	background-color: #E6E6E6;
+	margin-top: 0px;
+}
+#all{
+	color: #B09DC7;
+	height: 100px;
+}
+#friends{
+	color: #B09DC7;
+	height: 100px;
+}
+#family{
+	color: #B09DC7;
+	height: 100px;
+}
+#business{
+	color: #B09DC7;
+	height: 100px;
+}
+#addNew{
+	color: #B09DC7;
+	height: 100px;
 }
