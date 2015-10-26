@@ -35,6 +35,11 @@ function login(){
 
 }
 
+function logout(){
+	var user = new Stamplay.User().Model;
+	user.logout();
+}
+
 //REGISTER WITH FACEBOOK
 function registerFB(){
 	var user = new Stamplay.User().Model;
@@ -50,6 +55,7 @@ function loginFB(){
 //GET ALL DATA FOR APP ON PAGE LOAD
 window.onload = function(){
 	var loggedInUser = new Stamplay.User().Model;
+  	console.log(loggedInUser);
 	loggedInUser.currentUser().then(function(){
   		var user = loggedInUser.get('displayName');
 		document.getElementById('currentUser').innerHTML = user.toUpperCase();
