@@ -47,7 +47,7 @@ function loginFB(){
 	user.login('facebook');
 }
 
-//GET ALL DATA FOR APP
+//GET ALL DATA FOR APP ON PAGE LOAD
 window.onload = function(){
 	var loggedInUser = new Stamplay.User().Model;
 	loggedInUser.currentUser().then(function(){
@@ -69,13 +69,101 @@ window.onload = function(){
 			elemStr += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
 			elemStr += "</ul>" + "</div>";
 			
-
 			document.getElementById('contactOutput').innerHTML += elemStr;
-
-
 		}
 	});
 };
+
+//GET ALL DATA
+function getAll(){
+	document.getElementById('contactOutput').innerHTML ="";
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo("active_status", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			
+			var elemStr = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStr += "<li id=contactHeaderBar class=collection-item>" + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStr += "</ul>" + "</div>";
+			
+			document.getElementById('contactOutput').innerHTML += elemStr;
+		}
+	});
+}
+
+
+
+//GET FRIENDS DATA
+function getFriends(){
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo("friends", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			
+			var elemStr = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStr += "<li id=contactHeaderBar class=collection-item>" + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStr += "</ul>" + "</div>";
+			
+			document.getElementById('contactOutput').innerHTML ="";
+			document.getElementById('contactOutput').innerHTML += elemStr;
+		}
+	});
+}
+
+//GET FAMILY DATA
+function getFamily(){
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo("family", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			
+			var elemStr = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStr += "<li id=contactHeaderBar class=collection-item>" + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStr += "</ul>" + "</div>";
+			
+			document.getElementById('contactOutput').innerHTML ="";
+			document.getElementById('contactOutput').innerHTML += elemStr;
+		}
+	});
+}
+
+//GET BUSINESS DATA
+function getBusiness(){
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo("business", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			
+			var elemStr = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStr += "<li id=contactHeaderBar class=collection-item>" + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStr += "</ul>" + "</div>";
+			
+			document.getElementById('contactOutput').innerHTML ="";
+			document.getElementById('contactOutput').innerHTML += elemStr;
+		}
+	});
+}
+
 
 //NEW CONTACT MODAL
  $(document).ready(function(){
@@ -99,6 +187,7 @@ function addContact(){
 	objectInstance.set('family', family );
 	objectInstance.set('friends', friends );
 	objectInstance.set('business', business );
+	objectInstance.set('active_status', true );
 	objectInstance.save().then(function(){
 		window.location = "home.html";
 	});
