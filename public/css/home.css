@@ -4,7 +4,7 @@ body, html{
 }
 
 #navbar{
-	background-color: #5C468C;
+	background-color: #0073B0;
 	height: 80px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -15,28 +15,28 @@ body, html{
 }
 #tabBar{
 	width: 100vw;
-	background-color: #FFFFDB;
+	background-color: #003f61;
 }
 .tabs{
 	margin-top: 17px;
 	min-width: 100vw;
 }   
 .tabs .tab a{
-	color: #5C468C;
+	color: #FFFFFF;
 }
 .tabs .tab a:hover{
-	color: #5C468C;
+	color: #FFFFFF;
 }
 .tab-row {
 	padding:0 !important;
 }
 .indicator {
-	background-color: #5C468C !important;
+	background-color: #FFFFFF !important;
 }
 #options{
 	padding: 0px;
 	min-height: 100vh;
-	background-color: #ffffdb;
+	background-color: #EFF3F5;
 }
 #output{
 	padding: 0px;
@@ -45,35 +45,35 @@ body, html{
 	margin-top: 0px;
 }
 #all{
-	color: #B09DC7;
+	color: #003F61;
 	height: 100px;
 }
 #friends{
-	color: #B09DC7;
+	color: #003F61;
 	height: 100px;
 }
 #family{
-	color: #B09DC7;
+	color: #003F61;
 	height: 100px;
 }
 #business{
-	color: #B09DC7;
+	color: #003F61;
 	height: 100px;
 }
 #addNew{
-	color: #B09DC7;
+	color: #003F61;
 	height: 100px;
 }
 #addBtn{
 	width: 100%;
-	background-color: #5C468C;
+	background-color: #003F61;
 }
 #modal1{
 	padding-left: 20px;
 	padding-right: 20px;
 }
 #contactHeaderBar{
-	background-color: #B09DC7;
+	padding: none;
 }
 #selection{
 	margin: 0px;
