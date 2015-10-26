@@ -34,10 +34,13 @@ body{
 }
 #options{
 	padding: 0px;
+	min-height: 100vh;
+	background-color: #ffffdb;
+}
+#output{
+	padding: 0px;
 }
 #contacts{
-	min-height: 100vh;
-	background-color: #E6E6E6;
 	margin-top: 0px;
 }
 #all{
@@ -60,9 +63,6 @@ body{
 	color: #B09DC7;
 	height: 100px;
 }
-.hidden{
-	display: none;
-}
 #addBtn{
 	width: 100%;
 	background-color: #5C468C;
@@ -70,4 +70,14 @@ body{
 #modal1{
 	padding-left: 20px;
 	padding-right: 20px;
+}
+#contactHeaderBar{
+	background-color: #B09DC7;
+}
+#selection{
+	margin: 0px;
+}
+.collection{
+	margin-top: 0px;
+	min-height: 100%;
 }

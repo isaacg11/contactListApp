@@ -54,6 +54,27 @@ window.onload = function(){
   		var user = loggedInUser.get('displayName');
 		document.getElementById('currentUser').innerHTML = user.toUpperCase();
 	});
+	
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo("active_status", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			
+			var elemStr = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStr += "<li id=contactHeaderBar class=collection-item>" + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStr += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStr += "</ul>" + "</div>";
+			
+
+			document.getElementById('contactOutput').innerHTML += elemStr;
+
+
+		}
+	});
 };
 
 //NEW CONTACT MODAL
