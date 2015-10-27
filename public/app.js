@@ -66,7 +66,30 @@ window.onload = function(){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactFriendsTag = objectCollection.instance[i].instance.friends;
+			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			
+			if(contactFriendsTag === true){
+				contactFriendsTag = "Friends";
+			}
+			else{
+				contactFriendsTag = "";
+			}
+			if(contactFamilyTag === true){
+				contactFamilyTag = "Family";
+			}
+			else{
+				contactFamilyTag = "";
+			}
+			if(contactBusinessTag === true){
+				contactBusinessTag = "Business";
+			}
+			else{
+				contactBusinessTag = "";
+			}
+			
+
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
@@ -79,9 +102,14 @@ window.onload = function(){
 			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
+
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
 		}
 	});
 };
@@ -91,13 +119,36 @@ function getAll(){
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
 	document.getElementById('contactOutputPhone').innerHTML = '';
+	document.getElementById('contactOutputTag').innerHTML = '';
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("active_status", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactFriendsTag = objectCollection.instance[i].instance.friends;
+			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			
+			if(contactFriendsTag === true){
+				contactFriendsTag = "Friends";
+			}
+			else{
+				contactFriendsTag = "";
+			}
+			if(contactFamilyTag === true){
+				contactFamilyTag = "Family";
+			}
+			else{
+				contactFamilyTag = "";
+			}
+			if(contactBusinessTag === true){
+				contactBusinessTag = "Business";
+			}
+			else{
+				contactBusinessTag = "";
+			}
+
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
@@ -110,9 +161,14 @@ function getAll(){
 			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
+
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
 		}
 	});
 }
@@ -124,13 +180,23 @@ function getFriends(){
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
 	document.getElementById('contactOutputPhone').innerHTML = '';
+	document.getElementById('contactOutputTag').innerHTML = '';
+
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("friends", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactFriendsTag = objectCollection.instance[i].instance.friends;
 			
+			if(contactFriendsTag === true){
+				contactFriendsTag = "Friends";
+			}
+			else{
+				contactFriendsTag = "";
+			}
+
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
@@ -143,9 +209,15 @@ function getFriends(){
 			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactFriendsTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
+
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+
 		}
 	});
 }
@@ -155,12 +227,22 @@ function getFamily(){
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
 	document.getElementById('contactOutputPhone').innerHTML = '';
+	document.getElementById('contactOutputTag').innerHTML = '';
+
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("family", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			
+			if(contactFamilyTag === true){
+				contactFamilyTag = "Family";
+			}
+			else{
+				contactFamilyTag = "";
+			}
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
@@ -174,10 +256,15 @@ function getFamily(){
 			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactFamilyTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
 			
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+
 		}
 	});
 }
@@ -187,12 +274,22 @@ function getBusiness(){
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
 	document.getElementById('contactOutputPhone').innerHTML = '';
+	document.getElementById('contactOutputTag').innerHTML = '';
+
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("business", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactBusinessTag = objectCollection.instance[i].instance.business;
+			
+			if(contactBusinessTag === true){
+				contactBusinessTag = "Business";
+			}
+			else{
+				contactBusinessTag = "";
+			}
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
@@ -206,9 +303,14 @@ function getBusiness(){
 			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactBusinessTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
+
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
 		}
 	});
 }
