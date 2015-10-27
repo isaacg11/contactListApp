@@ -59,7 +59,91 @@ window.onload = function(){
   		var user = loggedInUser.get('displayName');
 		document.getElementById('currentUser').innerHTML = user.toUpperCase();
 	});
-	
+	var myArr = [];
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo("active_status", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactFriendsTag = objectCollection.instance[i].instance.friends;
+			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactBusinessTag = objectCollection.instance[i].instance.business;
+			var contactCustomTag = objectCollection.instance[i].instance.customTag;
+
+			if(contactCustomTag) { 
+				myArr.push(contactCustomTag);
+			}
+
+			if(contactFriendsTag === true){
+				contactFriendsTag = "Friends";
+			}
+			else{
+				contactFriendsTag = "";
+			}
+			if(contactFamilyTag === true){
+				contactFamilyTag = "Family";
+			}
+			else{
+				contactFamilyTag = "";
+			}
+			if(contactBusinessTag === true){
+				contactBusinessTag = "Business";
+			}
+			else{
+				contactBusinessTag = "";
+			}
+			if(contactCustomTag === undefined){
+				contactCustomTag = "";
+			}
+			else{
+				contactCustomTag = contactCustomTag;
+			}
+
+			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
+			elemStrName += "</ul>" + "</div>";
+
+			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
+			elemStrEmail += "</ul>" + "</div>";
+			
+			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
+			elemStrPhone += "</ul>" + "</div>";
+
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + contactCustomTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
+
+			document.getElementById('contactOutputName').innerHTML += elemStrName;
+			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
+			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+
+		}
+
+		var result = myArr.filter(function(item, pos) {
+    		return myArr.indexOf(item) == pos;
+		});
+
+		for(j = 0; j < result.length; j ++){
+			var elemStrCustomTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrCustomTag += "<li class=collection-item>" + result[j] + "</li>"; 
+			elemStrCustomTag += "</ul>" + "</div>";
+
+			document.getElementById('customTagLink').innerHTML += elemStrCustomTag;
+		}
+	});
+};
+
+
+//GET ALL DATA
+function getAll(){
+	document.getElementById('contactOutputName').innerHTML = '';
+	document.getElementById('contactOutputEmail').innerHTML = '';
+	document.getElementById('contactOutputPhone').innerHTML = '';
+	document.getElementById('contactOutputTag').innerHTML = '';
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("active_status", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
@@ -89,7 +173,12 @@ window.onload = function(){
 			else{
 				contactBusinessTag = "";
 			}
-		
+			if(contactCustomTag === undefined){
+				contactCustomTag = "";
+			}
+			else{
+				contactCustomTag = contactCustomTag;
+			}
 
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
@@ -105,65 +194,6 @@ window.onload = function(){
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + contactCustomTag + "</li>"; 
-			elemStrTag += "</ul>" + "</div>";
-
-			document.getElementById('contactOutputName').innerHTML += elemStrName;
-			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
-			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
-			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
-		}
-	});
-};
-
-//GET ALL DATA
-function getAll(){
-	document.getElementById('contactOutputName').innerHTML = '';
-	document.getElementById('contactOutputEmail').innerHTML = '';
-	document.getElementById('contactOutputPhone').innerHTML = '';
-	document.getElementById('contactOutputTag').innerHTML = '';
-	var objectCollection = new Stamplay.Cobject('contact').Collection;
-	objectCollection.equalTo("active_status", true).fetch().then(function() {
-		for(var i = 0; i<objectCollection.length; i ++){
-			var contactName = objectCollection.instance[i].instance.name;
-			var contactPhone = objectCollection.instance[i].instance.phone;
-			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactFriendsTag = objectCollection.instance[i].instance.friends;
-			var contactFamilyTag = objectCollection.instance[i].instance.family;
-			var contactBusinessTag = objectCollection.instance[i].instance.business;
-			
-			if(contactFriendsTag === true){
-				contactFriendsTag = "Friends";
-			}
-			else{
-				contactFriendsTag = "";
-			}
-			if(contactFamilyTag === true){
-				contactFamilyTag = "Family";
-			}
-			else{
-				contactFamilyTag = "";
-			}
-			if(contactBusinessTag === true){
-				contactBusinessTag = "Business";
-			}
-			else{
-				contactBusinessTag = "";
-			}
-
-			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
-			elemStrName += "</ul>" + "</div>";
-
-			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
-			elemStrEmail += "</ul>" + "</div>";
-			
-			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
-			elemStrPhone += "</ul>" + "</div>";
-
-			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -345,6 +375,7 @@ function addContact(){
 	objectInstance.set('customTag', customTag );
 	objectInstance.set('active_status', true );
 	objectInstance.save().then(function(){
+
 		window.location = "home.html";
 	});
 }
