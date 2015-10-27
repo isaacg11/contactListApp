@@ -33,10 +33,14 @@ body, html{
 .indicator {
 	background-color: #FFFFFF !important;
 }
+#contactCategory{
+	margin-bottom: 0px;
+	background-color: #F0F4F7;
+}
 #options{
 	padding: 0px;
 	min-height: 100vh;
-	background-color: #EFF3F5;
+	background-color: #003F61;
 }
 #output{
 	padding: 0px;

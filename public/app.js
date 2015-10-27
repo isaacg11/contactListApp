@@ -68,15 +68,15 @@ window.onload = function(){
 			var contactEmail = objectCollection.instance[i].instance.email;
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
 
 			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
 			elemStrEmail += "</ul>" + "</div>";
 			
 			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -99,15 +99,15 @@ function getAll(){
 			var contactEmail = objectCollection.instance[i].instance.email;
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
 
 			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
 			elemStrEmail += "</ul>" + "</div>";
 			
 			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -121,6 +121,9 @@ function getAll(){
 
 //GET FRIENDS DATA
 function getFriends(){
+	document.getElementById('contactOutputName').innerHTML = '';
+	document.getElementById('contactOutputEmail').innerHTML = '';
+	document.getElementById('contactOutputPhone').innerHTML = '';
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("friends", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
@@ -129,20 +132,17 @@ function getFriends(){
 			var contactEmail = objectCollection.instance[i].instance.email;
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
 
 			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
 			elemStrEmail += "</ul>" + "</div>";
 			
 			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
-			document.getElementById('contactOutputName').innerHTML = '';
-			document.getElementById('contactOutputEmail').innerHTML = '';
-			document.getElementById('contactOutputPhone').innerHTML = '';
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
@@ -152,6 +152,9 @@ function getFriends(){
 
 //GET FAMILY DATA
 function getFamily(){
+	document.getElementById('contactOutputName').innerHTML = '';
+	document.getElementById('contactOutputEmail').innerHTML = '';
+	document.getElementById('contactOutputPhone').innerHTML = '';
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("family", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
@@ -160,20 +163,18 @@ function getFamily(){
 			var contactEmail = objectCollection.instance[i].instance.email;
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
 
 			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
 			elemStrEmail += "</ul>" + "</div>";
 			
 			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
-			document.getElementById('contactOutputName').innerHTML = '';
-			document.getElementById('contactOutputEmail').innerHTML = '';
-			document.getElementById('contactOutputPhone').innerHTML = '';
+			
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
@@ -183,6 +184,9 @@ function getFamily(){
 
 //GET BUSINESS DATA
 function getBusiness(){
+	document.getElementById('contactOutputName').innerHTML = '';
+	document.getElementById('contactOutputEmail').innerHTML = '';
+	document.getElementById('contactOutputPhone').innerHTML = '';
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("business", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
@@ -191,20 +195,17 @@ function getBusiness(){
 			var contactEmail = objectCollection.instance[i].instance.email;
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + "<span>NAME: </span>" + contactName + "</li>"; 
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
 
 			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + "<span>EMAIL: </span>" + contactEmail + "</li>"; 
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
 			elemStrEmail += "</ul>" + "</div>";
 			
 			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + "<span>PHONE: </span>" + contactPhone + "</li>"; 
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
 			elemStrPhone += "</ul>" + "</div>";
 
-			document.getElementById('contactOutputName').innerHTML = '';
-			document.getElementById('contactOutputEmail').innerHTML = '';
-			document.getElementById('contactOutputPhone').innerHTML = '';
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
