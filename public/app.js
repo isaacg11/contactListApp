@@ -69,6 +69,7 @@ window.onload = function(){
 			var contactFriendsTag = objectCollection.instance[i].instance.friends;
 			var contactFamilyTag = objectCollection.instance[i].instance.family;
 			var contactBusinessTag = objectCollection.instance[i].instance.business;
+			var contactCustomTag = objectCollection.instance[i].instance.customTag;
 			
 			if(contactFriendsTag === true){
 				contactFriendsTag = "Friends";
@@ -88,7 +89,7 @@ window.onload = function(){
 			else{
 				contactBusinessTag = "";
 			}
-			
+		
 
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
@@ -103,7 +104,7 @@ window.onload = function(){
 			elemStrPhone += "</ul>" + "</div>";
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + "</li>"; 
+			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + contactCustomTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -327,9 +328,12 @@ function addContact(){
 	var name = document.getElementById('username').value;
 	var phone = document.getElementById('phone').value;
 	var email = document.getElementById('useremail').value;
+	var customTag = document.getElementById('customTag').value;
 	var family = document.getElementById("familyBox").checked;
 	var friends = document.getElementById("friendsBox").checked;
 	var business = document.getElementById("businessBox").checked;
+
+
 
 	var objectInstance = new Stamplay.Cobject('contact').Model;
 	objectInstance.set('name', name );
@@ -338,6 +342,7 @@ function addContact(){
 	objectInstance.set('family', family );
 	objectInstance.set('friends', friends );
 	objectInstance.set('business', business );
+	objectInstance.set('customTag', customTag );
 	objectInstance.set('active_status', true );
 	objectInstance.save().then(function(){
 		window.location = "home.html";
