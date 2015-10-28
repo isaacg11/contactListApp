@@ -14,8 +14,37 @@
 </ul>
 <nav>
   <div id="navbar" class="nav-wrapper">
-      <a class="brand-logo">
-      <i class="fa fa-users left"></i>Comm-tacts</a>
+        <ul id="nav-mobile" class="left">
+        <li>
+          <a
+            class="navbarSelection">
+            <i class="fa fa-users fa-lg"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            onclick="getAll()"
+            class="navbarSelection">
+            <i class="fa fa-user left"></i>People
+            <span id="numberOfPeople"></span>
+          </a>
+        </li>
+        <li>
+          <a
+            onclick="getBusiness()"
+            class="navbarSelection">
+            <i class="fa fa-building left"></i>Companies
+            <span id="numberOfCompanies"></span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="navbarSelection" >
+            <i class="fa fa-commenting-o left">
+            </i>Conversations
+          </a>
+        </li>
+      </ul>
     <ul class="right">
       <!-- Dropdown Trigger -->
       <li>

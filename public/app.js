@@ -71,6 +71,10 @@ window.onload = function(){
 			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			var contactCustomTag = objectCollection.instance[i].instance.customTag;
 
+			console.log(objectCollection);
+			document.getElementById('numberOfPeople').innerHTML = "(" + objectCollection.length + ")";
+			// document.getElementById('numberOfCompanies').innerHTML = "(" + objectCollection.instance.business.length + ")";
+
 			if(contactCustomTag) { 
 				myArr.push(contactCustomTag);
 			}
@@ -88,6 +92,10 @@ window.onload = function(){
 				contactTeamTag = "";
 			}
 			if(contactBusinessTag === true){
+				var a = 1;
+				a += a + a;
+				contactBusinessTag = a;
+				document.getElementById('numberOfCompanies').innerHTML = "(" + contactBusinessTag + ")";
 				contactBusinessTag = "Business";
 			}
 			else{
@@ -99,6 +107,7 @@ window.onload = function(){
 			else{
 				contactCustomTag = contactCustomTag;
 			}
+
 
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
