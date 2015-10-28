@@ -81,18 +81,22 @@ body, html{
 #all{
 	color: #003F61;
 	height: 100px;
+	cursor: pointer;
 }
 #friends{
 	color: #003F61;
 	height: 100px;
+	cursor: pointer;
 }
 #team{
 	color: #003F61;
 	height: 100px;
+	cursor: pointer;
 }
 #business{
 	color: #003F61;
 	height: 100px;
+	cursor: pointer;
 }
 #addNew{
 	color: #003F61;
