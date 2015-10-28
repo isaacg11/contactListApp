@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contact List App</title>
+	<title>Intercom Clone</title>
 	<link rel="stylesheet" type="text/css" href="public/css/materialize.css">
   	<link rel="stylesheet" type="text/css" href="public/css/home.css">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -10,7 +10,7 @@
 <body>
 <!--NAVBAR-->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a onclick="logout()">Logout</a></li>
+  <li><a onclick="logout()">Logout</i></a></li>
 </ul>
 <nav>
   <div id="navbar" class="nav-wrapper">
@@ -79,10 +79,9 @@
   </div>
   <div id="options" class="col s3">
       <div id="customTagName" class="row">
-        <label></label>
         <select id="dropdown" class="browser-default">
         <option value="" disabled selected>Search By..</option>
-        <option value="customTag">Tag</option>
+        <option value="customTag">Custom Tag</option>
         <option value="name">Name</option>
         <option value="email">Email</option>
         <option value="phone">Phone</option>
@@ -99,17 +98,17 @@
       <a 
         id="all"
         onclick="getAll()" 
-        class="collection-item"></i> ALL
+        class="collection-item"></i> ALL CONTACTS
       </a>
       <a 
         id="friends" 
-        onclick="getFriends()" 
-        class="collection-item">FRIENDS
+        onclick="getCustomers()" 
+        class="collection-item">CUSTOMERS
       </a>
       <a 
-        id="family" 
-        onclick="getFamily()" 
-        class="collection-item">FAMILY
+        id="team" 
+        onclick="getTeam()" 
+        class="collection-item">TEAM
       </a>
       <a 
         id="business" 
@@ -178,16 +177,16 @@
           <div class="row">
             <div class="input-field col s4">
               <p>
-                <input type="checkbox" id="familyBox" />
-                <label for="familyBox">
-                <i class="fa fa-tag"></i> Family</label>
+                <input type="checkbox" id="teamBox" />
+                <label for="teamBox">
+                <i class="fa fa-tag"></i> Team</label>
               </p>
             </div>
             <div class="input-field col s4">
               <p>
-                <input type="checkbox" id="friendsBox" />
-                <label for="friendsBox">
-                <i class="fa fa-tag"></i> Friends</label>
+                <input type="checkbox" id="customerBox" />
+                <label for="customerBox">
+                <i class="fa fa-tag"></i> Customer</label>
               </p>
             </div>
             <div class="input-field col s4">

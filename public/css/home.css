@@ -2,13 +2,16 @@ body, html{
 	background-color: #F3F3F3;
 	min-height: 100vh;
 }
-
+/*NAVBAR*/
 #navbar{
 	background-color: #0073B0;
 	height: 80px;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 15px;
+}
+.dropdown-content li > a, .dropdown-content li > span {
+	color: #0073B0;
 }
 .indTab{
 	margin-bottom: 0px;
@@ -33,9 +36,30 @@ body, html{
 .indicator {
 	background-color: #0073B0 !important;
 }
+
+   /* label focus color */
+.input-field input[type=text]:focus + label {
+     color: #0073B0;
+}
+   /* label underline focus color */
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #0073B0;
+     box-shadow: 0 1px 0 0 #0073B0;
+}
+   /* valid color */
+.input-field input[type=text].valid {
+     border-bottom: 1px solid #0073B0;
+     box-shadow: 0 1px 0 0 #0073B0;
+}
+[type="checkbox"]:checked + label:before {
+	border-right: 2px solid #0073B0; 
+    border-bottom: 2px solid #0073B0;
+}
 #contactCategory{
 	margin-bottom: 0px;
 	background-color: #F0F4F7;
+	border:1px solid;
+	border-color: #FFFFFF;
 }
 #customTagName{
 	background-color: #FFFFFF;
@@ -62,7 +86,7 @@ body, html{
 	color: #003F61;
 	height: 100px;
 }
-#family{
+#team{
 	color: #003F61;
 	height: 100px;
 }

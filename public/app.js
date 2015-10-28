@@ -66,8 +66,8 @@ window.onload = function(){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactFriendsTag = objectCollection.instance[i].instance.friends;
-			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactCustomerTag = objectCollection.instance[i].instance.customer;
+			var contactTeamTag = objectCollection.instance[i].instance.team;
 			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			var contactCustomTag = objectCollection.instance[i].instance.customTag;
 
@@ -75,17 +75,17 @@ window.onload = function(){
 				myArr.push(contactCustomTag);
 			}
 
-			if(contactFriendsTag === true){
-				contactFriendsTag = "Friends";
+			if(contactCustomerTag === true){
+				contactCustomerTag = "Customer";
 			}
 			else{
-				contactFriendsTag = "";
+				contactCustomerTag = "";
 			}
-			if(contactFamilyTag === true){
-				contactFamilyTag = "Family";
+			if(contactTeamTag === true){
+				contactTeamTag = "Team";
 			}
 			else{
-				contactFamilyTag = "";
+				contactTeamTag = "";
 			}
 			if(contactBusinessTag === true){
 				contactBusinessTag = "Business";
@@ -113,7 +113,7 @@ window.onload = function(){
 			elemStrPhone += "</ul>" + "</div>";
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + contactCustomTag + "</li>"; 
+			elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -154,22 +154,22 @@ function getAll(){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactFriendsTag = objectCollection.instance[i].instance.friends;
-			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactCustomerTag = objectCollection.instance[i].instance.customer;
+			var contactTeamTag = objectCollection.instance[i].instance.team;
 			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			var contactCustomTag = objectCollection.instance[i].instance.customTag;
 			
-			if(contactFriendsTag === true){
-				contactFriendsTag = "Friends";
+			if(contactCustomerTag === true){
+				contactCustomerTag = "Customer";
 			}
 			else{
-				contactFriendsTag = "";
+				contactCustomerTag = "";
 			}
-			if(contactFamilyTag === true){
-				contactFamilyTag = "Family";
+			if(contactTeamTag === true){
+				contactTeamTag = "Team";
 			}
 			else{
-				contactFamilyTag = "";
+				contactTeamTag = "";
 			}
 			if(contactBusinessTag === true){
 				contactBusinessTag = "Business";
@@ -197,7 +197,7 @@ function getAll(){
 			elemStrPhone += "</ul>" + "</div>";
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + contactCustomTag + "</li>"; 
+			elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -211,25 +211,24 @@ function getAll(){
 
 
 //GET FRIENDS DATA
-function getFriends(){
+function getCustomers(){
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
 	document.getElementById('contactOutputPhone').innerHTML = '';
 	document.getElementById('contactOutputTag').innerHTML = '';
 
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
-	objectCollection.equalTo("friends", true).fetch().then(function() {
+	objectCollection.equalTo("customer", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactFriendsTag = objectCollection.instance[i].instance.friends;
-			
-			if(contactFriendsTag === true){
-				contactFriendsTag = "Friends";
+			var contactCustomerTag = objectCollection.instance[i].instance.customer;
+			if(contactCustomerTag === true){
+				contactCustomerTag = "Customer";
 			}
 			else{
-				contactFriendsTag = "";
+				contactCustomerTag = "";
 			}
 
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
@@ -245,7 +244,7 @@ function getFriends(){
 			elemStrPhone += "</ul>" + "</div>";
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFriendsTag + "</li>"; 
+			elemStrTag += "<li class=collection-item>" + contactCustomerTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -258,25 +257,25 @@ function getFriends(){
 }
 
 //GET FAMILY DATA
-function getFamily(){
+function getTeam(){
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
 	document.getElementById('contactOutputPhone').innerHTML = '';
 	document.getElementById('contactOutputTag').innerHTML = '';
 
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
-	objectCollection.equalTo("family", true).fetch().then(function() {
+	objectCollection.equalTo("team", true).fetch().then(function() {
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactTeamTag = objectCollection.instance[i].instance.team;
 			
-			if(contactFamilyTag === true){
-				contactFamilyTag = "Family";
+			if(contactTeamTag === true){
+				contactTeamTag = "Team";
 			}
 			else{
-				contactFamilyTag = "";
+				contactTeamTag = "";
 			}
 			
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
@@ -292,7 +291,7 @@ function getFamily(){
 			elemStrPhone += "</ul>" + "</div>";
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFamilyTag + "</li>"; 
+			elemStrTag += "<li class=collection-item>" + contactTeamTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 			
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -364,27 +363,30 @@ $("#search-input").on("submit", function(e) {
 
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo(searchCategory, queryParam).fetch().then(function() {
+
+		console.log(objectCollection);
+
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactFriendsTag = objectCollection.instance[i].instance.friends;
-			var contactFamilyTag = objectCollection.instance[i].instance.family;
+			var contactCustomerTag = objectCollection.instance[i].instance.customer;
+			var contactTeamTag = objectCollection.instance[i].instance.team;
 			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			var contactCustomTag = objectCollection.instance[i].instance.customTag;
 
 
-			if(contactFriendsTag === true){
-				contactFriendsTag = "Friends";
+			if(contactCustomerTag === true){
+				contactCustomerTag = "Customer";
 			}
 			else{
-				contactFriendsTag = "";
+				contactCustomerTag = "";
 			}
-			if(contactFamilyTag === true){
-				contactFamilyTag = "Family";
+			if(contactTeamTag === true){
+				contactTeamTag = "Team";
 			}
 			else{
-				contactFamilyTag = "";
+				contactTeamTag = "";
 			}
 			if(contactBusinessTag === true){
 				contactBusinessTag = "Business";
@@ -413,7 +415,7 @@ $("#search-input").on("submit", function(e) {
 			elemStrPhone += "</ul>" + "</div>";
 
 			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactFriendsTag + contactFamilyTag + contactBusinessTag + contactCustomTag + "</li>"; 
+			elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
 			elemStrTag += "</ul>" + "</div>";
 
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
@@ -433,12 +435,12 @@ $("#search-input").on("submit", function(e) {
 
 //ADD NEW CONTACT
 function addContact(){
-	var name = getEl('username').value;
+	var name = document.getElementById('username').value;
 	var phone = document.getElementById('phone').value;
 	var email = document.getElementById('useremail').value;
 	var customTag = document.getElementById('customTag').value;
-	var family = document.getElementById("familyBox").checked;
-	var friends = document.getElementById("friendsBox").checked;
+	var team = document.getElementById("teamBox").checked;
+	var customer = document.getElementById("customerBox").checked;
 	var business = document.getElementById("businessBox").checked;
 
 
@@ -447,8 +449,8 @@ function addContact(){
 	objectInstance.set('name', name );
 	objectInstance.set('phone', phone );
 	objectInstance.set('email', email );
-	objectInstance.set('family', family );
-	objectInstance.set('friends', friends );
+	objectInstance.set('team', team );
+	objectInstance.set('customer', customer );
 	objectInstance.set('business', business );
 	objectInstance.set('customTag', customTag );
 	objectInstance.set('active_status', true );
