@@ -125,36 +125,38 @@
       </div>
     <div class="collection">
       <a 
-        id="all"
-        onclick="getAll()" 
-        class="collection-item"></i> ALL CONTACTS
-      </a>
-      <a 
-        id="friends" 
-        onclick="getCustomers()" 
-        class="collection-item">CUSTOMERS
-      </a>
-      <a 
-        id="team" 
-        onclick="getTeam()" 
-        class="collection-item">TEAM
-      </a>
-      <a 
-        id="business" 
-        onclick="getBusiness()" 
-        class="collection-item">BUSINESS
-      </a>
-      <a 
         id="addNew" 
         href="#modal1" 
         class="collection-item modal-trigger"> 
         NEW CONTACT <i class="fa fa-plus"></i>
       </a>
-       <div
-        class="collection-item"
-        id="customTagLink"> 
-      </div>
     </div>
+    <p>User Data</p>
+    <form action="#">
+      <p>
+        <input
+          onclick="openNameBoolean()" 
+          type="checkbox" 
+          class="filled-in" 
+          id="openName"/>
+          <label for="openName">Name</label>
+      </p>
+    </form>
+    <p class="hiddenNameBoolean" id="hiddenNameIs">
+      <input 
+        class="with-gap" 
+        type="radio"
+        id="nameIs"/>
+      <label for="nameIs">Is</label>
+    </p>
+    <p class="hiddenNameBoolean" id="hiddenNameIsNot">
+      <input 
+        class="with-gap" 
+        type="radio"
+        id="nameIsNot"/>
+      <label for="nameIsNot">Is Not</label>
+    </p>
+
   </div>
    <div id="output" class="col s2">
       <span id="contactOutputName"></span>

@@ -77,7 +77,11 @@ body, html{
 #options{
 	padding: 0px;
 	min-height: 100vh;
-	background-color: #003F61;
+	background-color: #F8FAFB;
+}
+#CB{
+	border: 1px solid;
+	border-color: #000000;
 }
 #output{
 	padding: 0px;
@@ -85,25 +89,8 @@ body, html{
 #contacts{
 	margin-top: 0px;
 }
-#all{
-	color: #003F61;
-	height: 100px;
-	cursor: pointer;
-}
-#friends{
-	color: #003F61;
-	height: 100px;
-	cursor: pointer;
-}
-#team{
-	color: #003F61;
-	height: 100px;
-	cursor: pointer;
-}
-#business{
-	color: #003F61;
-	height: 100px;
-	cursor: pointer;
+.hiddenNameBoolean{
+	display: none;
 }
 #addNew{
 	color: #003F61;

@@ -71,7 +71,6 @@ window.onload = function(){
 			var contactBusinessTag = objectCollection.instance[i].instance.business;
 			var contactCustomTag = objectCollection.instance[i].instance.customTag;
 
-			console.log(objectCollection);
 			document.getElementById('numberOfPeople').innerHTML = "(" + objectCollection.length + ")";
 			// document.getElementById('numberOfCompanies').innerHTML = "(" + objectCollection.instance.business.length + ")";
 
@@ -469,7 +468,19 @@ function addContact(){
 	});
 }
 
-
+//OPEN NAME BOOLEAN
+function openNameBoolean(){
+	var radioBtn = document.getElementById("openName").checked;
+	console.log(radioBtn);
+	if(radioBtn === true){
+		document.getElementById('hiddenNameIs').className = "";
+		document.getElementById('hiddenNameIsNot').className = "";
+	}
+	else{
+		document.getElementById('hiddenNameIs').className = "hiddenNameBoolean";
+		document.getElementById('hiddenNameIsNot').className = "hiddenNameBoolean";
+	}	
+}
 
 
 
