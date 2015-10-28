@@ -128,11 +128,15 @@ window.onload = function(){
 		});
 
 		for(j = 0; j < result.length; j ++){
-			var elemStrCustomTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrCustomTag += "<li class=collection-item>" + result[j] + "</li>"; 
-			elemStrCustomTag += "</ul>" + "</div>";
+			var elemStrCustomTag = 	"<div id=contact>" + 
+										"<ul id=selection class=collection >";
+			elemStrCustomTag += 			"<li class=collection-item>" + 
+												"<a onclick = goToCustomTag() id=customHTML>" + result[j] +"</a>" + 
+											"</li>"; 
+			elemStrCustomTag += 		"</ul>" + 
+									"</div>";
 
-			document.getElementById('customTagLink').innerHTML += elemStrCustomTag;
+			// document.getElementById('customTagLink').innerHTML += elemStrCustomTag;
 		}
 	});
 };
@@ -346,6 +350,20 @@ function getBusiness(){
 	});
 }
 
+//QUERY CUSTOM TAG
+
+
+function test(){
+
+	var select = document.getElementById("dropdown");
+	var searchCategory = select.options[select.selectedIndex].value;
+	var queryParam = document.getElementById('searchTag').value;
+
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+	objectCollection.equalTo(searchCategory, queryParam).fetch().then(function() {
+		console.log(objectCollection);
+	});
+}
 
 //NEW CONTACT MODAL
  $(document).ready(function(){
@@ -353,9 +371,10 @@ function getBusiness(){
     $('.modal-trigger').leanModal();
   });
 
+
 //ADD NEW CONTACT
 function addContact(){
-	var name = document.getElementById('username').value;
+	var name = getEl('username').value;
 	var phone = document.getElementById('phone').value;
 	var email = document.getElementById('useremail').value;
 	var customTag = document.getElementById('customTag').value;

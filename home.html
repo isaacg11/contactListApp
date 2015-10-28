@@ -78,6 +78,23 @@
     </div>
   </div>
   <div id="options" class="col s3">
+      <div id="customTagName" class="row">
+        <label></label>
+        <select id="dropdown" class="browser-default">
+        <option value="" disabled selected>Search By..</option>
+        <option value="customTag">Tag</option>
+        <option value="name">Name</option>
+        <option value="email">Email</option>
+        <option value="phone">Phone</option>
+        </select>
+        <form onsubmit = "test()">
+          <div class="input-field col s12">
+            <i class="fa fa-search"></i>
+            <input id="searchTag" type="text" type="submit" class="validate center">
+            <label for="searchTag"></label>
+          </div>
+        </form>
+      </div>
     <div class="collection">
       <a 
         id="all"
@@ -103,11 +120,12 @@
         id="addNew" 
         href="#modal1" 
         class="collection-item modal-trigger"> 
-        NEW CUSTOMER <i class="fa fa-plus"></i>
+        NEW CONTACT <i class="fa fa-plus"></i>
       </a>
-       <p 
+       <div
+        class="collection-item"
         id="customTagLink"> 
-      </p>
+      </div>
     </div>
   </div>
    <div id="output" class="col s2">
@@ -127,9 +145,6 @@
 <!--TAB 2-->
 
 
-
-
-
 <!--MODAL-->
 <div id="modal1" class="modal">
   <div class="modal-content">
@@ -137,7 +152,7 @@
       class=" modal-action modal-close waves-effect waves-green btn-flat right">
       <i class="fa fa-times large"></i>
     </a>
-    <h4>New Customer</h4>
+    <h4>New Contact</h4>
       <div class="row">
         <div class="input-field col s12">
           <input id="username" type="text">
