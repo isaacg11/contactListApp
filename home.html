@@ -38,9 +38,10 @@
         </li>
         <li>
           <a
+            onclick="getTeam()"
             class="navbarSelection" >
-            <i class="fa fa-commenting-o left">
-            </i>Conversations
+            <i class="fa fa-rocket left"></i>Team
+            <span id="numberOfTeam"></span>
           </a>
         </li>
       </ul>
@@ -66,19 +67,15 @@
   <div>
     <ul id="tabBar" class="tabs">
       <li class="tab col s3"><a class="active" href="#contacts">
-      <i class="fa fa-user"></i> my contacts</a></li>
+      <i class="fa fa-user"></i> All Users</a></li>
       <li class="tab col s3"><a href="#email">
-      <i class="fa fa-envelope"></i> email</a></li>
-      <li class="tab col s3"><a href="#chat">
-      <i class="fa fa-smile-o"></i> chat</a></li>
-      <li class="tab col s3"><a href="#messaging">
-      <i class="fa fa-commenting"></i> messaging</a></li>
+      <i class="fa fa-commenting-o"></i> Conversations</a></li>
     </ul>
   </div>
 </div>
 
 <!--TAB 1-->
-
+<!--CATEGORY HEADERS-->
 <div id="contacts" class="row">
   <div id="contactCategory" class="row">
     <div class="col s3">
@@ -105,6 +102,8 @@
       </p>
     </div>
   </div>
+
+<!--SEARCH BY CATEGORY-->
   <div id="options" class="col s3">
       <div id="customTagName" class="row">
         <select id="dropdown" class="browser-default">
@@ -130,6 +129,8 @@
         NEW CONTACT <i class="fa fa-plus"></i>
       </a>
     </div>
+
+<!--SEARCH BY NAME FILTER-->
     <p>User Data</p>
     <form action="#">
       <p>
@@ -138,7 +139,8 @@
           type="checkbox" 
           class="filled-in" 
           id="openName"/>
-          <label for="openName">Name</label>
+          <label for="openName">
+          <i class="fa fa-user"></i> Name</label>
       </p>
     </form>
     <p class="hiddenNameBoolean" id="hiddenNameIs">
@@ -166,6 +168,42 @@
         </div>
     </form>
 
+<!--SEARCH BY EMAIL FILTER-->
+    <form action="#">
+      <p>
+        <input
+          onclick="openEmailBoolean()" 
+          type="checkbox" 
+          class="filled-in" 
+          id="openEmail"/>
+          <label for="openEmail">@ Email</label>
+      </p>
+    </form>
+    <p class="hiddenEmailBoolean" id="hiddenEmailIs">
+      <input 
+        class="with-gap" 
+        type="radio"
+        value="true" 
+        id="emailIs"/>
+      <label for="emailIs">Is</label>
+    </p>
+    <p class="hiddenEmailBoolean" id="hiddenEmailIsNot">
+      <input 
+        class="with-gap" 
+        type="radio"
+        id="emailIsNot"/>
+      <label for="emailIsNot">Is Not</label>
+    </p>
+    <form 
+      class="hiddenEmailBoolean" 
+      id="emailSearchInput">
+        <div class="input-field col s12">
+          <i class="fa fa-search"></i>
+          <input id="searchEmail" type="text" type="submit" class="validate center">
+          <label for="searchEmail"></label>
+        </div>
+    </form>
+
   </div>
    <div id="output" class="col s2">
       <span id="contactOutputName"></span>
@@ -181,10 +219,8 @@
   </div>
 </div>
 
-<!--TAB 2-->
 
-
-<!--MODAL-->
+<!--ADD CONTACT MODAL-->
 <div id="modal1" class="modal">
   <div class="modal-content">
     <a href="#!" 

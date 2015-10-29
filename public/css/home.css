@@ -99,6 +99,9 @@ body, html{
 .hiddenNameBoolean{
 	display: none;
 }
+.hiddenEmailBoolean{
+	display: none;
+}
 #addNew{
 	color: #003F61;
 	height: 100px;
