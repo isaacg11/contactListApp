@@ -17,8 +17,7 @@
         <ul id="nav-mobile" class="left">
         <li>
           <a
-            class="navbarSelection">
-            <i class="fa fa-users fa-lg"></i>
+            class="hide-on-med-and-down navbarSelection"><h4>INTERCLONE</h4>
           </a>
         </li>
         <li>
@@ -146,6 +145,7 @@
       <input 
         class="with-gap" 
         type="radio"
+        value="true" 
         id="nameIs"/>
       <label for="nameIs">Is</label>
     </p>
@@ -156,6 +156,15 @@
         id="nameIsNot"/>
       <label for="nameIsNot">Is Not</label>
     </p>
+    <form 
+      class="hiddenNameBoolean" 
+      id="nameSearchInput">
+        <div class="input-field col s12">
+          <i class="fa fa-search"></i>
+          <input id="searchName" type="text" type="submit" class="validate center">
+          <label for="searchTag"></label>
+        </div>
+    </form>
 
   </div>
    <div id="output" class="col s2">
