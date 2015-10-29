@@ -1,6 +1,7 @@
 body, html{
 	background-color: #F3F3F3;
 	min-height: 100vh;
+	font-family: "Helvetica Neue";
 }
 /*NAVBAR*/
 #navbar{
@@ -12,6 +13,9 @@ body, html{
 }
 .navbarSelection{
 	cursor: pointer;
+}
+.navbarSelectionBackGr{
+	border-radius: 45%;
 }
 #getPeople{
 	cursor: pointer;
@@ -40,7 +44,7 @@ body, html{
 	padding:0 !important;
 }
 .indicator {
-	background-color: #0073B0 !important;
+	background-color: #E0BC28 !important;
 }
 
    /* label focus color */
@@ -69,6 +73,15 @@ body, html{
 	background-color: #0073B0;
 	border-color: #0073B0;
 }
+#searchFraction{
+	margin: 0px;
+}
+#searchFractionOutput{
+	font-size: 20px;
+}
+#fraction{
+	padding-top: 10px;
+}
 #contactCategory{
 	margin-bottom: 0px;
 	background-color: #F0F4F7;
@@ -83,6 +96,8 @@ body, html{
 }
 #options{
 	padding: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
 	min-height: 100vh;
 	background-color: #F8FAFB;
 }
@@ -103,6 +118,9 @@ body, html{
 	display: none;
 }
 .hiddenTagBoolean{
+	display: none;
+}
+.hiddenIdBoolean{
 	display: none;
 }
 #addNew{

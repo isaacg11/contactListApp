@@ -20,7 +20,7 @@
             class="hide-on-med-and-down navbarSelection"><h4>INTERCLONE</h4>
           </a>
         </li>
-        <li>
+        <li class="navbarSelectionBackGr">
           <a
             onclick="getAll()"
             class="navbarSelection">
@@ -28,7 +28,7 @@
             <span id="numberOfPeople"></span>
           </a>
         </li>
-        <li>
+        <li class="navbarSelectionBackGr">
           <a
             onclick="getBusiness()"
             class="navbarSelection">
@@ -36,7 +36,7 @@
             <span id="numberOfCompanies"></span>
           </a>
         </li>
-        <li>
+        <li class="navbarSelectionBackGr">
           <a
             onclick="getTeam()"
             class="navbarSelection" >
@@ -67,7 +67,7 @@
   <div>
     <ul id="tabBar" class="tabs">
       <li class="tab col s3"><a class="active" href="#contacts">
-      <i class="fa fa-user"></i> All Users</a></li>
+      <i class="fa fa-users"></i> All Users</a></li>
       <li class="tab col s3"><a href="#email">
       <i class="fa fa-commenting-o"></i> Conversations</a></li>
     </ul>
@@ -76,6 +76,15 @@
 
 <!--TAB 1-->
 <!--CATEGORY HEADERS-->
+<div id="searchFraction" class="row">
+  <div class="col s2">
+    <p> </p>
+  </div>
+  <div id="fraction" class="col s10">
+    <span id="searchFractionOutput"></span>
+  </div>
+</div>
+
 <div id="contacts" class="row">
   <div id="contactCategory" class="row">
     <div class="col s2">
@@ -240,6 +249,41 @@
         <div class="input-field col s12">
           <input id="searchByTag" type="text" type="submit" class="validate center">
           <label for="searchByTag"></label>
+        </div>
+    </form>
+
+<!--SEARCH BY ID FILTER-->
+    <form action="#">
+      <p>
+        <input
+          onclick="openIdBoolean()" 
+          type="checkbox" 
+          class="filled-in" 
+          id="openId"/>
+          <label for="openId">_Id</label>
+      </p>
+    </form>
+    <p class="hiddenIdBoolean" id="hiddenIdIs">
+      <input 
+        class="with-gap" 
+        type="radio"
+        value="true" 
+        id="IdIs"/>
+      <label for="IdIs">Is</label>
+    </p>
+    <p class="hiddenIdBoolean" id="hiddenIdIsNot">
+      <input 
+        class="with-gap" 
+        type="radio"
+        id="IdIsNot"/>
+      <label for="IdIsNot">Is Not</label>
+    </p>
+    <form 
+      class="hiddenIdBoolean" 
+      id="IdSearchInput">
+        <div class="input-field col s12">
+          <input id="searchById" type="text" type="submit" class="validate center">
+          <label for="searchById"></label>
         </div>
     </form>
 <!--USER DATA OUTPUT-->
