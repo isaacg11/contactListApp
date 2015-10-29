@@ -337,6 +337,37 @@ function getBusiness(){
 	});
 }
 
+//NEW CONTACT MODAL
+ $(document).ready(function(){
+    $('.modal-trigger').leanModal();
+  });
+
+
+//ADD NEW CONTACT
+function addContact(){
+	var name = document.getElementById('username').value;
+	var phone = document.getElementById('phone').value;
+	var email = document.getElementById('useremail').value;
+	var customTag = document.getElementById('customTag').value;
+	var team = document.getElementById("teamBox").checked;
+	var customer = document.getElementById("customerBox").checked;
+	var business = document.getElementById("businessBox").checked;
+
+	var objectInstance = new Stamplay.Cobject('contact').Model;
+	objectInstance.set('name', name );
+	objectInstance.set('phone', phone );
+	objectInstance.set('email', email );
+	objectInstance.set('team', team );
+	objectInstance.set('customer', customer );
+	objectInstance.set('business', business );
+	objectInstance.set('customTag', customTag );
+	objectInstance.set('active_status', true );
+	objectInstance.save().then(function(){
+
+		window.location = "home.html";
+	});
+}
+
 //CUSTOM SEARCH
 $("#search-input").on("submit", function(e) {
 	e.preventDefault();
@@ -352,7 +383,6 @@ $("#search-input").on("submit", function(e) {
 
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo(searchCategory, queryParam).fetch().then(function() {
-
 		for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
@@ -422,38 +452,6 @@ $("#search-input").on("submit", function(e) {
 	});
 });
 
-//NEW CONTACT MODAL
- $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-  });
-
-
-//ADD NEW CONTACT
-function addContact(){
-	var name = document.getElementById('username').value;
-	var phone = document.getElementById('phone').value;
-	var email = document.getElementById('useremail').value;
-	var customTag = document.getElementById('customTag').value;
-	var team = document.getElementById("teamBox").checked;
-	var customer = document.getElementById("customerBox").checked;
-	var business = document.getElementById("businessBox").checked;
-
-	var objectInstance = new Stamplay.Cobject('contact').Model;
-	objectInstance.set('name', name );
-	objectInstance.set('phone', phone );
-	objectInstance.set('email', email );
-	objectInstance.set('team', team );
-	objectInstance.set('customer', customer );
-	objectInstance.set('business', business );
-	objectInstance.set('customTag', customTag );
-	objectInstance.set('active_status', true );
-	objectInstance.save().then(function(){
-
-		window.location = "home.html";
-	});
-}
-
 //OPEN NAME FILTER
 function openNameBoolean(){
 	var radioBtn = document.getElementById("openName").checked;
@@ -484,7 +482,14 @@ $("#nameSearchInput").on("submit", function(e) {
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 
 	if(nameIs === true){
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 		objectCollection.equalTo("name", searchParam).fetch().then(function() {
+		var totalMatchingNames = objectCollection.instance.length;
+
+		document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingNames + " / " + totalPeople + "</b>" + " " + "users";
+
 			for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
@@ -550,12 +555,19 @@ $("#nameSearchInput").on("submit", function(e) {
 			var nameIs = document.getElementById("nameIs").checked = false;
 			}
 		});
+		});
 	}
 	else{
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 		var req = new XMLHttpRequest();
 		req.open("GET", 'https://contactlistapp.stamplayapp.com/api/cobject/v1/contact?where={"name":{"$ne": "'+searchParam+'"}}', true);
 		req.onload = function() {
 			var data = JSON.parse(req.response);
+			var totalMatchingNames = data.data.length;
+
+			document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingNames + " / " + totalPeople + "</b>" + " " + "users";
 
 			for(var i = 0; i<data.data.length; i ++){
 			var contactName = data.data[i].name;
@@ -623,6 +635,7 @@ $("#nameSearchInput").on("submit", function(e) {
 			}
 		};
 		req.send();
+	});
 	}
 });
 
@@ -656,7 +669,14 @@ $("#emailSearchInput").on("submit", function(e) {
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 
 	if(emailIs === true){
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 		objectCollection.equalTo("email", searchParam).fetch().then(function() {
+		var totalMatchingEmails = objectCollection.instance.length;
+
+		document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingEmails + " / " + totalPeople + "</b>" + " " + "users";
+
 			for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
@@ -722,12 +742,19 @@ $("#emailSearchInput").on("submit", function(e) {
 			var nameIs = document.getElementById("emailIs").checked = false;
 			}
 		});
+		});
 	}
 	else{
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 		var req = new XMLHttpRequest();
 		req.open("GET", 'https://contactlistapp.stamplayapp.com/api/cobject/v1/contact?where={"email":{"$ne": "'+searchParam+'"}}', true);
 		req.onload = function() {
 			var data = JSON.parse(req.response);
+			var totalMatchingEmails = data.data.length;
+
+			document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingEmails + " / " + totalPeople + "</b>" + " " + "users";
 
 			for(var i = 0; i<data.data.length; i ++){
 			var contactName = data.data[i].name;
@@ -795,6 +822,7 @@ $("#emailSearchInput").on("submit", function(e) {
 			}
 		};
 		req.send();
+	});
 	}
 });
 
@@ -828,7 +856,14 @@ $("#tagSearchInput").on("submit", function(e) {
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 
 	if(tagIs === true){
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 		objectCollection.equalTo("customTag", searchParam).fetch().then(function() {
+		var totalMatchingTags = objectCollection.instance.length;
+
+		document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingTags + " / " + totalPeople + "</b>" + " " + "users";
+
 			for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
@@ -894,15 +929,19 @@ $("#tagSearchInput").on("submit", function(e) {
 			document.getElementById('searchTag').value = "";
 			}
 		});
+		});
 	}
 	else{
-
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
 
 		var req = new XMLHttpRequest();
 		req.open("GET", 'https://contactlistapp.stamplayapp.com/api/cobject/v1/contact?where={"customTag":{"$ne": "'+searchParam+'"}}');
 		req.onload = function() {
 			var data = JSON.parse(req.response);
+			var totalMatchingTags = data.data.length;
 
+			document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingTags + " / " + totalPeople + "</b>" + " " + "users";
 
 			for(var i = 0; i<data.data.length; i ++){
 			var contactName = data.data[i].name;
@@ -970,6 +1009,7 @@ $("#tagSearchInput").on("submit", function(e) {
 			}
 		};
 		req.send();
+	});
 	}
 });
 
@@ -1003,7 +1043,14 @@ $("#IdSearchInput").on("submit", function(e) {
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 
 	if(IdIs === true){
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 		objectCollection.equalTo("_id", searchParam).fetch().then(function() {
+		var totalMatchingIds = objectCollection.instance.length;
+
+		document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingIds + " / " + totalPeople + "</b>" + " " + "users";
+
 			for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
@@ -1066,8 +1113,9 @@ $("#IdSearchInput").on("submit", function(e) {
 			document.getElementById('contactOutputId').innerHTML += elemStrId;
 
 			document.getElementById("IdIs").checked = false;
-			document.getElementById('searchId').value = "";
+			document.getElementById('searchById').value = "";
 			}
+		});
 		});
 	}
 	else{
