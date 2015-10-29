@@ -78,7 +78,7 @@
 <!--CATEGORY HEADERS-->
 <div id="contacts" class="row">
   <div id="contactCategory" class="row">
-    <div class="col s3">
+    <div class="col s2">
       <p>
         <i class="fa fa-folder-o left"></i>CATEGORY
       </p>
@@ -104,7 +104,7 @@
   </div>
 
 <!--SEARCH BY CATEGORY-->
-  <div id="options" class="col s3">
+  <div id="options" class="col s2">
       <div id="customTagName" class="row">
         <select id="dropdown" class="browser-default">
         <option value="" disabled selected>Search By..</option>
@@ -131,7 +131,7 @@
     </div>
 
 <!--SEARCH BY NAME FILTER-->
-    <p>User Data</p>
+    <p>User Data Filter</p>
     <form action="#">
       <p>
         <input
@@ -162,7 +162,6 @@
       class="hiddenNameBoolean" 
       id="nameSearchInput">
         <div class="input-field col s12">
-          <i class="fa fa-search"></i>
           <input id="searchName" type="text" type="submit" class="validate center">
           <label for="searchTag"></label>
         </div>
@@ -198,12 +197,47 @@
       class="hiddenEmailBoolean" 
       id="emailSearchInput">
         <div class="input-field col s12">
-          <i class="fa fa-search"></i>
           <input id="searchEmail" type="text" type="submit" class="validate center">
           <label for="searchEmail"></label>
         </div>
     </form>
 
+<!--SEARCH BY TAG FILTER-->
+    <form action="#">
+      <p>
+        <input
+          onclick="openTagBoolean()" 
+          type="checkbox" 
+          class="filled-in" 
+          id="openTag"/>
+          <label for="openTag">
+          <i class="fa fa-tag"></i> Tag</label>
+      </p>
+    </form>
+    <p class="hiddenTagBoolean" id="hiddenTagIs">
+      <input 
+        class="with-gap" 
+        type="radio"
+        value="true" 
+        id="tagIs"/>
+      <label for="tagIs">Is</label>
+    </p>
+    <p class="hiddenTagBoolean" id="hiddenTagIsNot">
+      <input 
+        class="with-gap" 
+        type="radio"
+        id="tagIsNot"/>
+      <label for="tagIsNot">Is Not</label>
+    </p>
+    <form 
+      class="hiddenTagBoolean" 
+      id="tagSearchInput">
+        <div class="input-field col s12">
+          <input id="searchTag" type="text" type="submit" class="validate center">
+          <label for="searchTag"></label>
+        </div>
+    </form>
+<!--USER DATA OUTPUT-->
   </div>
    <div id="output" class="col s2">
       <span id="contactOutputName"></span>
@@ -218,6 +252,7 @@
       <span id="contactOutputTag"></span>
   </div>
 </div>
+
 
 
 <!--ADD CONTACT MODAL-->

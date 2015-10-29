@@ -102,6 +102,9 @@ body, html{
 .hiddenEmailBoolean{
 	display: none;
 }
+.hiddenTagBoolean{
+	display: none;
+}
 #addNew{
 	color: #003F61;
 	height: 100px;
