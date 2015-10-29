@@ -785,6 +785,7 @@ function openTagBoolean(){
 
 //SEARCH TAG FILTER
 $("#tagSearchInput").on("submit", function(e) {
+	console.log('hit');
 	e.preventDefault();
 	document.getElementById('contactOutputName').innerHTML = '';
 	document.getElementById('contactOutputEmail').innerHTML = '';
@@ -793,10 +794,10 @@ $("#tagSearchInput").on("submit", function(e) {
 
 	var tagIs = document.getElementById("tagIs").checked;
 	var tagIsNot = document.getElementById("tagIsNot").checked;
-	var searchParam = document.getElementById("searchTag").value;
+	var searchParam = document.getElementById("searchByTag").value;
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 
-	if(emailIs === true){
+	if(tagIs === true){
 		objectCollection.equalTo("customTag", searchParam).fetch().then(function() {
 			for(var i = 0; i<objectCollection.length; i ++){
 			var contactName = objectCollection.instance[i].instance.name;
@@ -859,10 +860,13 @@ $("#tagSearchInput").on("submit", function(e) {
 		});
 	}
 	else{
+
+
 		var req = new XMLHttpRequest();
-		req.open("GET", 'https://contactlistapp.stamplayapp.com/api/cobject/v1/contact?where={"customTag":{"$ne": "'+searchParam+'"}}', true);
+		req.open("GET", 'https://contactlistapp.stamplayapp.com/api/cobject/v1/contact?where={"customTag":{"$ne": "'+searchParam+'"}}');
 		req.onload = function() {
 			var data = JSON.parse(req.response);
+
 
 			for(var i = 0; i<data.data.length; i ++){
 			var contactName = data.data[i].name;
