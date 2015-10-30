@@ -1129,71 +1129,71 @@ $("#IdSearchInput").on("submit", function(e) {
 			});
 
 			for(var i = 0; i<data.data.length; i ++){
-			var contactName = data.data[i].name;
-			var contactPhone = data.data[i].phone;
-			var contactEmail = data.data[i].email;
-			var contactCustomerTag = data.data[i].customer;
-			var contactTeamTag = data.data[i].team;
-			var contactBusinessTag = data.data[i].business;
-			var contactCustomTag = data.data[i].customTag;
-			var contactId = data.data[i].id;
+				var contactName = data.data[i].name;
+				var contactPhone = data.data[i].phone;
+				var contactEmail = data.data[i].email;
+				var contactCustomerTag = data.data[i].customer;
+				var contactTeamTag = data.data[i].team;
+				var contactBusinessTag = data.data[i].business;
+				var contactCustomTag = data.data[i].customTag;
+				var contactId = data.data[i].id;
 
-			if(contactCustomerTag === true){
-				contactCustomerTag = "Customer";
-			}
-			else{
-				contactCustomerTag = "";
-			}
-			if(contactTeamTag === true){
-				contactTeamTag = "Team";
-			}
-			else{
-				contactTeamTag = "";
-			}
-			if(contactBusinessTag === true){
-				contactBusinessTag = "Business";
-			}
-			else{
-				contactBusinessTag = "";
-			}
-			if(contactCustomTag === undefined){
-				contactCustomTag = "";
-			}
-			else{
-				contactCustomTag = contactCustomTag;
-			}
+				if(contactCustomerTag === true){
+					contactCustomerTag = "Customer";
+				}
+				else{
+					contactCustomerTag = "";
+				}
+				if(contactTeamTag === true){
+					contactTeamTag = "Team";
+				}
+				else{
+					contactTeamTag = "";
+				}
+				if(contactBusinessTag === true){
+					contactBusinessTag = "Business";
+				}
+				else{
+					contactBusinessTag = "";
+				}
+				if(contactCustomTag === undefined){
+					contactCustomTag = "";
+				}
+				else{
+					contactCustomTag = contactCustomTag;
+				}
 
-			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
-			elemStrName += "</ul>" + "</div>";
+				var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
+				elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
+				elemStrName += "</ul>" + "</div>";
 
-			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
-			elemStrEmail += "</ul>" + "</div>";
+				var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
+				elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
+				elemStrEmail += "</ul>" + "</div>";
 			
-			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
-			elemStrPhone += "</ul>" + "</div>";
+				var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
+				elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
+				elemStrPhone += "</ul>" + "</div>";
 
-			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
-			elemStrTag += "</ul>" + "</div>";
+				var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+				elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
+				elemStrTag += "</ul>" + "</div>";
 
-			var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
-			elemStrId += "</ul>" + "</div>";
+				var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
+				elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
+				elemStrId += "</ul>" + "</div>";
 
-			document.getElementById('contactOutputName').innerHTML += elemStrName;
-			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
-			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
-			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
-			document.getElementById('contactOutputId').innerHTML += elemStrId;
+				document.getElementById('contactOutputName').innerHTML += elemStrName;
+				document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
+				document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+				document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+				document.getElementById('contactOutputId').innerHTML += elemStrId;
 
-			document.getElementById('searchById').value = "";
-			document.getElementById("IdIsNot").checked = false;
+				document.getElementById('searchById').value = "";
+				document.getElementById("IdIsNot").checked = false;
 			}
-	}
-});
+		}
+	});
 
 //OPEN SIGN UP FILTER
 function openSignUpBoolean(){
@@ -1226,77 +1226,154 @@ $("#signUpSearchInput").on("submit", function(e) {
 	var inputDays = parseInt(searchParam);
 	var todayDate = new Date();
 
-	objectCollection.equalTo("active_status", true).fetch().then(function() {
-		for(var i = 0; i<objectCollection.length; i ++){
-			var contactName = objectCollection.instance[i].instance.name;
-			var contactPhone = objectCollection.instance[i].instance.phone;
-			var contactEmail = objectCollection.instance[i].instance.email;
-			var contactCustomerTag = objectCollection.instance[i].instance.customer;
-			var contactTeamTag = objectCollection.instance[i].instance.team;
-			var contactBusinessTag = objectCollection.instance[i].instance.business;
-			var contactCustomTag = objectCollection.instance[i].instance.customTag;
-			var contactId = objectCollection.instance[i].instance.id;
-			var contactSignUp = objectCollection.instance[i].instance.dt_create;
-			var signUpDate = new Date(contactSignUp);
+	if(signUpIsMore === true){
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+			for(var i = 0; i<objectCollection.length; i ++){
+				var contactName = objectCollection.instance[i].instance.name;
+				var contactPhone = objectCollection.instance[i].instance.phone;
+				var contactEmail = objectCollection.instance[i].instance.email;
+				var contactCustomerTag = objectCollection.instance[i].instance.customer;
+				var contactTeamTag = objectCollection.instance[i].instance.team;
+				var contactBusinessTag = objectCollection.instance[i].instance.business;
+				var contactCustomTag = objectCollection.instance[i].instance.customTag;
+				var contactId = objectCollection.instance[i].instance.id;
+				var contactSignUp = objectCollection.instance[i].instance.dt_create;
+				var signUpDate = new Date(contactSignUp);
 
-			var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
-			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+				var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
+				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
-			if(contactCustomerTag === true){
-				contactCustomerTag = "Customer";
-			}
-			else{
-				contactCustomerTag = "";
-			}
-			if(contactTeamTag === true){
-				contactTeamTag = "Team";
-			}
-			else{
-				contactTeamTag = "";
-			}
-			if(contactBusinessTag === true){
-				contactBusinessTag = "Business";
-			}
-			else{
-				contactBusinessTag = "";
-			}
-			if(contactCustomTag === undefined){
-				contactCustomTag = "";
-			}
-			else{
-				contactCustomTag = contactCustomTag;
-			}
+				if(contactCustomerTag === true){
+					contactCustomerTag = "Customer";
+				}
+				else{
+					contactCustomerTag = "";
+				}
+				if(contactTeamTag === true){
+					contactTeamTag = "Team";
+				}
+				else{
+					contactTeamTag = "";
+				}
+				if(contactBusinessTag === true){
+					contactBusinessTag = "Business";
+				}
+				else{
+					contactBusinessTag = "";
+				}
+				if(contactCustomTag === undefined){
+					contactCustomTag = "";
+				}
+				else{
+					contactCustomTag = contactCustomTag;
+				}
 
-			if(diffDays > inputDays){
-			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
-			elemStrName += "</ul>" + "</div>";
+				if(diffDays > inputDays){
+					var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
+					elemStrName += "</ul>" + "</div>";
 
-			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
-			elemStrEmail += "</ul>" + "</div>";
+					var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
+					elemStrEmail += "</ul>" + "</div>";
 			
-			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
-			elemStrPhone += "</ul>" + "</div>";
+					var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
+					elemStrPhone += "</ul>" + "</div>";
 
-			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
-			elemStrTag += "</ul>" + "</div>";
+					var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
+					elemStrTag += "</ul>" + "</div>";
 
-			var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
-			elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
-			elemStrId += "</ul>" + "</div>";
+					var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
+					elemStrId += "</ul>" + "</div>";
 
-			document.getElementById('contactOutputName').innerHTML += elemStrName;
-			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
-			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
-			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
-			document.getElementById('contactOutputId').innerHTML += elemStrId;
+					document.getElementById('contactOutputName').innerHTML += elemStrName;
+					document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
+					document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+					document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+					document.getElementById('contactOutputId').innerHTML += elemStrId;
 
-			document.getElementById("signUpIsMore").checked = false;
-			document.getElementById('searchBySignUp').value = "";
+					document.getElementById("signUpIsMore").checked = false;
+					document.getElementById('searchBySignUp').value = "";
+				}
 			}
-		}
-	});
+		});
+	}
+	else{
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+			for(var i = 0; i<objectCollection.length; i ++){
+				var contactName = objectCollection.instance[i].instance.name;
+				var contactPhone = objectCollection.instance[i].instance.phone;
+				var contactEmail = objectCollection.instance[i].instance.email;
+				var contactCustomerTag = objectCollection.instance[i].instance.customer;
+				var contactTeamTag = objectCollection.instance[i].instance.team;
+				var contactBusinessTag = objectCollection.instance[i].instance.business;
+				var contactCustomTag = objectCollection.instance[i].instance.customTag;
+				var contactId = objectCollection.instance[i].instance.id;
+				var contactSignUp = objectCollection.instance[i].instance.dt_create;
+				var signUpDate = new Date(contactSignUp);
+
+				var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
+				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+				if(contactCustomerTag === true){
+					contactCustomerTag = "Customer";
+				}
+				else{
+					contactCustomerTag = "";
+				}
+				if(contactTeamTag === true){
+					contactTeamTag = "Team";
+				}
+				else{
+					contactTeamTag = "";
+				}
+				if(contactBusinessTag === true){
+					contactBusinessTag = "Business";
+				}
+				else{
+					contactBusinessTag = "";
+				}
+				if(contactCustomTag === undefined){
+					contactCustomTag = "";
+				}
+				else{
+					contactCustomTag = contactCustomTag;
+				}
+
+				if(diffDays < inputDays){
+					var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
+					elemStrName += "</ul>" + "</div>";
+
+					var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
+					elemStrEmail += "</ul>" + "</div>";
+			
+					var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
+					elemStrPhone += "</ul>" + "</div>";
+
+					var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
+					elemStrTag += "</ul>" + "</div>";
+
+					var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
+					elemStrId += "</ul>" + "</div>";
+
+					document.getElementById('contactOutputName').innerHTML += elemStrName;
+					document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
+					document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+					document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+					document.getElementById('contactOutputId').innerHTML += elemStrId;
+
+					document.getElementById("signUpIsLess").checked = false;
+					document.getElementById('searchBySignUp').value = "";
+				}
+			}
+		});
+	}	
 });
