@@ -145,7 +145,7 @@
     </div>
 
 <!--SEARCH BY NAME FILTER-->
-    <p>User Data Filter</p>
+    <p id="filterHeader"><b>User Data Filter</b></p>
     <form action="#">
       <p>
         <input
@@ -284,6 +284,42 @@
         <div class="input-field col s12">
           <input id="searchById" type="text" type="submit" class="validate center">
           <label for="searchById"></label>
+        </div>
+    </form>
+
+<!--SEARCH BY SIGN UP FILTER-->
+    <form action="#">
+      <p>
+        <input
+          onclick="openSignUpBoolean()" 
+          type="checkbox" 
+          class="filled-in" 
+          id="openSignUp"/>
+          <label for="openSignUp">
+          <i class="fa fa-calendar-plus-o"></i> Signed Up</label>
+      </p>
+    </form>
+    <p class="hiddenSignUpBoolean" id="hiddenSignUpIs">
+      <input 
+        class="with-gap" 
+        type="radio"
+        value="true" 
+        id="signUpIsMore"/>
+      <label for="signUpIsMore">More Than</label>
+    </p>
+    <p class="hiddenSignUpBoolean" id="hiddenSignUpIsNot">
+      <input 
+        class="with-gap" 
+        type="radio"
+        id="signUpIsLess"/>
+      <label for="signUpIsLess">Less Than</label>
+    </p>
+    <form 
+      class="hiddenSignUpBoolean" 
+      id="signUpSearchInput">
+        <div class="input-field col s12">
+          <input id="searchBySignUp" type="text" type="submit" class="validate center">
+          <label for="searchBySignUp"></label>
         </div>
     </form>
 <!--USER DATA OUTPUT-->

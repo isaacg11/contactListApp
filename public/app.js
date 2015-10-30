@@ -1119,7 +1119,6 @@ $("#IdSearchInput").on("submit", function(e) {
 		});
 	}
 	else{
-			
 			var query = new Stamplay.Query('cobject','contact');
 			console.log(searchParam);
 			console.log(query);
@@ -1128,8 +1127,6 @@ $("#IdSearchInput").on("submit", function(e) {
 
 				console.log(response);
 			});
-
-
 
 			for(var i = 0; i<data.data.length; i ++){
 			var contactName = data.data[i].name;
@@ -1196,4 +1193,110 @@ $("#IdSearchInput").on("submit", function(e) {
 			document.getElementById("IdIsNot").checked = false;
 			}
 	}
+});
+
+//OPEN SIGN UP FILTER
+function openSignUpBoolean(){
+	var radioBtn = document.getElementById("openSignUp").checked;
+	if(radioBtn === true){
+		document.getElementById('hiddenSignUpIs').className = "";
+		document.getElementById('hiddenSignUpIsNot').className = "";
+		document.getElementById('signUpSearchInput').className = "";
+	}
+	else{
+		document.getElementById('hiddenSignUpIs').className = "hiddenSignUpBoolean";
+		document.getElementById('hiddenSignUpIsNot').className = "hiddenSignUpBoolean";
+		document.getElementById('signUpSearchInput').className = "hiddenSignUpBoolean";
+	}	
+}
+
+//SEARCH ID FILTER
+$("#signUpSearchInput").on("submit", function(e) {
+	e.preventDefault();
+	document.getElementById('contactOutputName').innerHTML = '';
+	document.getElementById('contactOutputEmail').innerHTML = '';
+	document.getElementById('contactOutputPhone').innerHTML = '';
+	document.getElementById('contactOutputTag').innerHTML = '';
+	document.getElementById('contactOutputId').innerHTML = '';
+
+	var signUpIsMore = document.getElementById("signUpIsMore").checked;
+	var signUpIsLess = document.getElementById("signUpIsLess").checked;
+	var searchParam = document.getElementById("searchBySignUp").value;
+	var objectCollection = new Stamplay.Cobject('contact').Collection;
+
+	var todayDate = new Date();
+
+	objectCollection.equalTo("active_status", true).fetch().then(function() {
+		for(var i = 0; i<objectCollection.length; i ++){
+			var contactName = objectCollection.instance[i].instance.name;
+			var contactPhone = objectCollection.instance[i].instance.phone;
+			var contactEmail = objectCollection.instance[i].instance.email;
+			var contactCustomerTag = objectCollection.instance[i].instance.customer;
+			var contactTeamTag = objectCollection.instance[i].instance.team;
+			var contactBusinessTag = objectCollection.instance[i].instance.business;
+			var contactCustomTag = objectCollection.instance[i].instance.customTag;
+			var contactId = objectCollection.instance[i].instance.id;
+			var contactSignUp = objectCollection.instance[i].instance.dt_create;
+			var signUpDate = new Date(contactSignUp);
+
+			var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
+			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+			console.log(diffDays);
+			console.log(searchParam);
+
+			while(diffDays > searchParam){
+			if(contactCustomerTag === true){
+				contactCustomerTag = "Customer";
+			}
+			else{
+				contactCustomerTag = "";
+			}
+			if(contactTeamTag === true){
+				contactTeamTag = "Team";
+			}
+			else{
+				contactTeamTag = "";
+			}
+			if(contactBusinessTag === true){
+				contactBusinessTag = "Business";
+			}
+			else{
+				contactBusinessTag = "";
+			}
+			if(contactCustomTag === undefined){
+				contactCustomTag = "";
+			}
+			else{
+				contactCustomTag = contactCustomTag;
+			}
+		}
+
+			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
+			elemStrName += "</ul>" + "</div>";
+
+			var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
+			elemStrEmail += "</ul>" + "</div>";
+			
+			var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
+			elemStrPhone += "</ul>" + "</div>";
+
+			var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
+			elemStrTag += "</ul>" + "</div>";
+
+			var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
+			elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
+			elemStrId += "</ul>" + "</div>";
+
+			document.getElementById('contactOutputName').innerHTML += elemStrName;
+			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
+			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+			document.getElementById('contactOutputId').innerHTML += elemStrId;
+		}
+	});
 });
