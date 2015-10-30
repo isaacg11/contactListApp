@@ -1201,11 +1201,13 @@ function openSignUpBoolean(){
 	if(radioBtn === true){
 		document.getElementById('hiddenSignUpIs').className = "";
 		document.getElementById('hiddenSignUpIsNot').className = "";
+		document.getElementById('hiddenSignUpIsEqual').className = "";
 		document.getElementById('signUpSearchInput').className = "";
 	}
 	else{
 		document.getElementById('hiddenSignUpIs').className = "hiddenSignUpBoolean";
 		document.getElementById('hiddenSignUpIsNot').className = "hiddenSignUpBoolean";
+		document.getElementById('hiddenSignUpIsEqual').className = "hiddenSignUpBoolean";
 		document.getElementById('signUpSearchInput').className = "hiddenSignUpBoolean";
 	}	
 }
@@ -1225,9 +1227,12 @@ $("#signUpSearchInput").on("submit", function(e) {
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	var inputDays = parseInt(searchParam);
 	var todayDate = new Date();
+	var totalMatchingDates = 0;
 
 	if(signUpIsMore === true){
 		objectCollection.equalTo("active_status", true).fetch().then(function() {
+		var totalPeople = objectCollection.instance.length;
+
 			for(var i = 0; i<objectCollection.length; i ++){
 				var contactName = objectCollection.instance[i].instance.name;
 				var contactPhone = objectCollection.instance[i].instance.phone;
@@ -1269,6 +1274,10 @@ $("#signUpSearchInput").on("submit", function(e) {
 				}
 
 				if(diffDays > inputDays){
+					totalMatchingDates += 1;
+
+					document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingDates + " / " + totalPeople + "</b>" + " " + "users";
+
 					var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 					elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 					elemStrName += "</ul>" + "</div>";
@@ -1301,7 +1310,7 @@ $("#signUpSearchInput").on("submit", function(e) {
 			}
 		});
 	}
-	else{
+	else if(signUpIsLess === true){
 		objectCollection.equalTo("active_status", true).fetch().then(function() {
 			for(var i = 0; i<objectCollection.length; i ++){
 				var contactName = objectCollection.instance[i].instance.name;
@@ -1314,6 +1323,7 @@ $("#signUpSearchInput").on("submit", function(e) {
 				var contactId = objectCollection.instance[i].instance.id;
 				var contactSignUp = objectCollection.instance[i].instance.dt_create;
 				var signUpDate = new Date(contactSignUp);
+				var totalPeople = objectCollection.instance.length;
 
 				var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
 				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
@@ -1344,6 +1354,10 @@ $("#signUpSearchInput").on("submit", function(e) {
 				}
 
 				if(diffDays < inputDays){
+					totalMatchingDates += 1;
+
+					document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingDates + " / " + totalPeople + "</b>" + " " + "users";
+
 					var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 					elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 					elemStrName += "</ul>" + "</div>";
@@ -1371,6 +1385,86 @@ $("#signUpSearchInput").on("submit", function(e) {
 					document.getElementById('contactOutputId').innerHTML += elemStrId;
 
 					document.getElementById("signUpIsLess").checked = false;
+					document.getElementById('searchBySignUp').value = "";
+				}
+			}
+		});
+	}
+	else{
+		objectCollection.equalTo("active_status", true).fetch().then(function() {
+			for(var i = 0; i<objectCollection.length; i ++){
+				var contactName = objectCollection.instance[i].instance.name;
+				var contactPhone = objectCollection.instance[i].instance.phone;
+				var contactEmail = objectCollection.instance[i].instance.email;
+				var contactCustomerTag = objectCollection.instance[i].instance.customer;
+				var contactTeamTag = objectCollection.instance[i].instance.team;
+				var contactBusinessTag = objectCollection.instance[i].instance.business;
+				var contactCustomTag = objectCollection.instance[i].instance.customTag;
+				var contactId = objectCollection.instance[i].instance.id;
+				var contactSignUp = objectCollection.instance[i].instance.dt_create;
+				var signUpDate = new Date(contactSignUp);
+				var totalPeople = objectCollection.instance.length;
+
+				var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
+				var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+				if(contactCustomerTag === true){
+					contactCustomerTag = "Customer";
+				}
+				else{
+					contactCustomerTag = "";
+				}
+				if(contactTeamTag === true){
+					contactTeamTag = "Team";
+				}
+				else{
+					contactTeamTag = "";
+				}
+				if(contactBusinessTag === true){
+					contactBusinessTag = "Business";
+				}
+				else{
+					contactBusinessTag = "";
+				}
+				if(contactCustomTag === undefined){
+					contactCustomTag = "";
+				}
+				else{
+					contactCustomTag = contactCustomTag;
+				}
+
+				if(diffDays === inputDays){
+					totalMatchingDates += 1;
+
+					document.getElementById('searchFractionOutput').innerHTML = "<i class='fa fa-smile-o'></i>" + " " + "<b>" + totalMatchingDates + " / " + totalPeople + "</b>" + " " + "users";
+
+					var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
+					elemStrName += "</ul>" + "</div>";
+
+					var elemStrEmail = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrEmail += "<li class=collection-item>" + contactEmail + "</li>"; 
+					elemStrEmail += "</ul>" + "</div>";
+			
+					var elemStrPhone = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrPhone += "<li class=collection-item>" + contactPhone + "</li>"; 
+					elemStrPhone += "</ul>" + "</div>";
+
+					var elemStrTag = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrTag += "<li class=collection-item>" + contactCustomerTag + contactTeamTag + contactBusinessTag + contactCustomTag + "</li>"; 
+					elemStrTag += "</ul>" + "</div>";
+
+					var elemStrId = "<div id=contact>" + "<ul id=selection class=collection >";
+					elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
+					elemStrId += "</ul>" + "</div>";
+
+					document.getElementById('contactOutputName').innerHTML += elemStrName;
+					document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
+					document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
+					document.getElementById('contactOutputTag').innerHTML += elemStrTag;
+					document.getElementById('contactOutputId').innerHTML += elemStrId;
+
+					document.getElementById("signUpIsEqual").checked = false;
 					document.getElementById('searchBySignUp').value = "";
 				}
 			}
