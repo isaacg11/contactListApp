@@ -1223,7 +1223,7 @@ $("#signUpSearchInput").on("submit", function(e) {
 	var signUpIsLess = document.getElementById("signUpIsLess").checked;
 	var searchParam = document.getElementById("searchBySignUp").value;
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
-
+	var inputDays = parseInt(searchParam);
 	var todayDate = new Date();
 
 	objectCollection.equalTo("active_status", true).fetch().then(function() {
@@ -1242,10 +1242,6 @@ $("#signUpSearchInput").on("submit", function(e) {
 			var timeDiff = Math.abs(todayDate.getTime() - signUpDate.getTime());
 			var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
-			console.log(diffDays);
-			console.log(searchParam);
-
-			while(diffDays > searchParam){
 			if(contactCustomerTag === true){
 				contactCustomerTag = "Customer";
 			}
@@ -1270,8 +1266,8 @@ $("#signUpSearchInput").on("submit", function(e) {
 			else{
 				contactCustomTag = contactCustomTag;
 			}
-		}
 
+			if(diffDays > inputDays){
 			var elemStrName = "<div id=contact>" + "<ul id=selection class=collection >";
 			elemStrName += "<li class=collection-item>" + contactName + "</li>"; 
 			elemStrName += "</ul>" + "</div>";
@@ -1297,6 +1293,10 @@ $("#signUpSearchInput").on("submit", function(e) {
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
 			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
 			document.getElementById('contactOutputId').innerHTML += elemStrId;
+
+			document.getElementById("signUpIsMore").checked = false;
+			document.getElementById('searchBySignUp').value = "";
+			}
 		}
 	});
 });
