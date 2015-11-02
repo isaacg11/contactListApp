@@ -88,9 +88,7 @@
 <div id="contacts" class="row">
   <div id="contactCategory" class="row">
     <div class="col s2">
-      <p>
-        <i class="fa fa-folder-o left"></i>CATEGORY
-      </p>
+      <p> </p>
     </div>
     <div class="col s2">
       <p>
@@ -140,7 +138,13 @@
         id="addNew" 
         href="#modal1" 
         class="collection-item modal-trigger"> 
-        NEW CONTACT <i class="fa fa-plus"></i>
+        NEW CONTACT <i class="fa fa-plus right"></i>
+      </a>
+      <a 
+        id="addNew" 
+        href="#modal2" 
+        class="collection-item modal-trigger"> 
+        EDIT CONTACTS <i class="fa fa-pencil-square-o right"></i>
       </a>
     </div>
 
@@ -417,6 +421,75 @@
           onclick="addContact()" 
           id="addBtn" 
           class="waves-effect waves-light btn-large">Add</a>
+      </div>
+      <br>
+</div>
+
+<!--EDIT CONTACT MODAL-->
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <a href="#!" 
+      class=" modal-action modal-close waves-effect waves-green btn-flat right">
+      <i class="fa fa-times large"></i>
+    </a>
+    <h4>Edit Contact</h4>
+      <div class="row">
+       <div class="input-field col s5">
+          <select id="" class="browser-default">
+          <option value="1">Name (edit all contacts matching name)</option>
+          <option value="2">Email (edit all contacts matching email)</option>
+          <option value="3">_Id (edit 1 individual contact)</option> 
+          </select>
+        </div>
+        <div class="input-field col s2 center">
+         <span id = "equalTo"><b>=</b></span>
+        </div>
+        <div class="input-field col s5">
+          <select id="userSelection" class="browser-default">
+          </select>
+        </div>
+        <div class="input-field col s12">
+          <p>What do you want to edit?</p>
+        </div>
+      </div>
+        <form action="#">
+          <div class="row">
+            <div class="input-field col s3">
+              <p>
+                <input type="checkbox" id="nameBox" />
+                <label for="nameBox">
+                <i class="fa fa-user"></i> Name</label>
+              </p>
+            </div>
+            <div class="input-field col s3">
+              <p>
+                <input type="checkbox" id="phoneBox" />
+                <label for="phoneBox">
+                <i class="fa fa-phone"></i> Phone</label>
+              </p>
+            </div>
+             <div class="input-field col s3">
+              <p>
+                <input type="checkbox" id="emailBox" />
+                <label for="emailBox">@ Email</label>
+              </p>
+            </div>
+            <div class="input-field col s3">
+              <p>
+                <input type="checkbox" id="tagBox" />
+                <label for="tagBox"> 
+                <i class="fa fa-tag"> Tag</i></label>
+              </p>
+            <br>
+            <br>
+            </div>
+          </div>
+        </form>
+      <div class="center">
+        <a
+          onclick="editContact()" 
+          id="addBtn" 
+          class="waves-effect waves-light btn-large">Submit Edit</a>
       </div>
       <br>
 </div>

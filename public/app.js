@@ -62,10 +62,20 @@ window.onload = function(){
 
 	var myTeamCounter = 0;
 	var myBusinessCounter = 0;
+	var selectionArr = [];
 
 	var objectCollection = new Stamplay.Cobject('contact').Collection;
 	objectCollection.equalTo("active_status", true).fetch().then(function() {
+
 		for(var i = 0; i<objectCollection.length; i ++){
+			selectionArr.push(objectCollection.instance[i].instance.name);
+			selectOutput = document.getElementById("userSelection");
+
+			for (var j=0;j<selectionArr.length;j++) {
+			option = new Option(selectionArr[j],selectionArr[j]);
+			selectOutput.options[j] = option;
+			}
+
 			var contactName = objectCollection.instance[i].instance.name;
 			var contactPhone = objectCollection.instance[i].instance.phone;
 			var contactEmail = objectCollection.instance[i].instance.email;
@@ -129,11 +139,13 @@ window.onload = function(){
 			elemStrId += "<li class=collection-item>" + contactId + "</li>"; 
 			elemStrId += "</ul>" + "</div>";
 
+
 			document.getElementById('contactOutputName').innerHTML += elemStrName;
 			document.getElementById('contactOutputEmail').innerHTML += elemStrEmail;
 			document.getElementById('contactOutputPhone').innerHTML += elemStrPhone;
 			document.getElementById('contactOutputTag').innerHTML += elemStrTag;
 			document.getElementById('contactOutputId').innerHTML += elemStrId;
+			// document.getElementById('selectUser').innerHTML += elemStrSelectUser;
 		}
 	});
 };

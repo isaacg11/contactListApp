@@ -6,7 +6,7 @@ body, html{
 /*NAVBAR*/
 #navbar{
 	background-color: #0073B0;
-	height: 80px;
+	height: 82px;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 15px;
@@ -152,4 +152,8 @@ body, html{
 .collection{
 	margin-top: 0px;
 	min-height: 100%;
+}
+#equalTo{
+	font-size: 25px;
+	color: #939393;
 }
