@@ -380,6 +380,43 @@ function addContact(){
 	});
 }
 
+//EDIT CONTACT 
+function openNameEdit(){
+	var checked = document.getElementById('nameBox').checked;
+	if(checked === true){
+		document.getElementById("nameEdit").className = "";
+	}
+	else{
+		document.getElementById("nameEdit").className = "hiddenNameEdit";
+	}
+}
+function openPhoneEdit(){
+	var checked = document.getElementById('phoneBox').checked;
+	if(checked === true){
+		document.getElementById("phoneEdit").className = "";
+	}
+	else{
+		document.getElementById("phoneEdit").className = "hiddenPhoneEdit";
+	}
+}
+function openEmailEdit(){
+	var checked = document.getElementById('emailBox').checked;
+	if(checked === true){
+		document.getElementById("emailEdit").className = "";
+	}
+	else{
+		document.getElementById("emailEdit").className = "hiddenEmailEdit";
+	}
+}
+function openTagEdit(){
+	var checked = document.getElementById('tagBox').checked;
+	if(checked === true){
+		document.getElementById("tagEdit").className = "";
+	}
+	else{
+		document.getElementById("tagEdit").className = "hiddenTagEdit";
+	}
+}
 //CUSTOM SEARCH
 $("#search-input").on("submit", function(e) {
 	e.preventDefault();

@@ -130,6 +130,18 @@ body, html{
 .hiddenSignUpBoolean{
 	display: none;
 }
+.hiddenNameEdit{
+	display: none;
+}
+.hiddenPhoneEdit{
+	display: none;
+}
+.hiddenEmailEdit{
+	display: none;
+}
+.hiddenTagEdit{
+	display: none;
+}
 #addNew{
 	color: #003F61;
 	height: 50px;

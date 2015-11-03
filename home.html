@@ -456,34 +456,53 @@
           <div class="row">
             <div class="input-field col s3">
               <p>
-                <input type="checkbox" id="nameBox" />
+                <input onclick="openNameEdit()" type="checkbox" id="nameBox" />
                 <label for="nameBox">
                 <i class="fa fa-user"></i> Name</label>
               </p>
             </div>
             <div class="input-field col s3">
               <p>
-                <input type="checkbox" id="phoneBox" />
+                <input onclick="openPhoneEdit()" type="checkbox" id="phoneBox" />
                 <label for="phoneBox">
                 <i class="fa fa-phone"></i> Phone</label>
               </p>
             </div>
              <div class="input-field col s3">
               <p>
-                <input type="checkbox" id="emailBox" />
+                <input onclick="openEmailEdit()" type="checkbox" id="emailBox" />
                 <label for="emailBox">@ Email</label>
               </p>
             </div>
             <div class="input-field col s3">
               <p>
-                <input type="checkbox" id="tagBox" />
+                <input onclick="openTagEdit()" type="checkbox" id="tagBox" />
                 <label for="tagBox"> 
                 <i class="fa fa-tag"> Tag</i></label>
               </p>
             <br>
             <br>
-            </div>
           </div>
+            <div id="nameEdit" class="hiddenNameEdit input-field col s12">
+              <i class="fa fa-pencil"></i> Enter new name...</i>
+              <input id="editName" type="text">
+              <label for="editName"></label>
+            </div>
+            <div id="phoneEdit" class="hiddenPhoneEdit input-field col s12">
+              <i class="fa fa-pencil"></i> Enter new phone...</i>
+              <input id="editPhone" type="text">
+              <label for="editPhone"></label>
+            </div>
+            <div id="emailEdit" class="hiddenEmailEdit input-field col s12">
+              <i class="fa fa-pencil"></i> Enter new email...</i>
+              <input id="editEmail" type="text">
+              <label for="editEmail"></label>
+            </div>
+            <div id="tagEdit" class="hiddenTagEdit input-field col s12">
+              <i class="fa fa-tag"></i> Enter new tag...</i>
+              <input id="editTag" type="text">
+              <label for="editTag"></label>
+            </div>
         </form>
       <div class="center">
         <a
